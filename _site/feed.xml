@@ -3,8 +3,8 @@
 	<channel>
 		<title>{ John Smith }</title>
 		<description>Blog and website of John Smith, blogging mainly for tech. Opinions expressed are mine.</description>
-		<link>http://localhost:4000/personal-jekyll-theme</link>
-		<atom:link href="http://localhost:4000/personal-jekyll-theme/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://localhost:4000/RTStory</link>
+		<atom:link href="http://localhost:4000/RTStory/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Adding Javascript </title>
@@ -16,15 +16,15 @@
 
 &lt;script src=&quot;https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js&quot;&gt;&lt;/script&gt;
 
-&lt;script src=&quot;/personal-jekyll-theme/js/wordcloud.js &quot;&gt;wc()&lt;/script&gt;
+&lt;script src=&quot;/RTStory/js/wordcloud.js &quot;&gt;wc()&lt;/script&gt;
 
 &lt;script&gt;wc()&lt;/script&gt;
 
 </description>
 				
 				<pubDate>Thu, 14 Dec 2017 21:32:39 +0100</pubDate>
-				<link>http://localhost:4000/personal-jekyll-theme/javascript/2017/12/14/adding-javascript.html</link>
-				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/javascript/2017/12/14/adding-javascript.html</guid>
+				<link>http://localhost:4000/RTStory/javascript/2017/12/14/adding-javascript.html</link>
+				<guid isPermaLink="true">http://localhost:4000/RTStory/javascript/2017/12/14/adding-javascript.html</guid>
 			</item>
 		
 			<item>
@@ -36,8 +36,8 @@
 </description>
 				
 				<pubDate>Fri, 08 Dec 2017 13:39:50 +0100</pubDate>
-				<link>http://localhost:4000/personal-jekyll-theme/jekyll/update/2017/12/08/welcome-to-jekyll.html</link>
-				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/jekyll/update/2017/12/08/welcome-to-jekyll.html</guid>
+				<link>http://localhost:4000/RTStory/jekyll/update/2017/12/08/welcome-to-jekyll.html</link>
+				<guid isPermaLink="true">http://localhost:4000/RTStory/jekyll/update/2017/12/08/welcome-to-jekyll.html</guid>
 			</item>
 		
 			<item>
@@ -49,8 +49,8 @@
 </description>
 				
 				<pubDate>Sat, 27 Jun 2015 00:00:00 +0200</pubDate>
-				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/27/welcome.html</link>
-				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/27/welcome.html</guid>
+				<link>http://localhost:4000/RTStory/tech/2015/06/27/welcome.html</link>
+				<guid isPermaLink="true">http://localhost:4000/RTStory/tech/2015/06/27/welcome.html</guid>
 			</item>
 		
 			<item>
@@ -64,8 +64,8 @@ serving your { Personal } website for the first time.&lt;/p&gt;
 </description>
 				
 				<pubDate>Thu, 25 Jun 2015 00:00:00 +0200</pubDate>
-				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/25/initial-setup.html</link>
-				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/25/initial-setup.html</guid>
+				<link>http://localhost:4000/RTStory/tech/2015/06/25/initial-setup.html</link>
+				<guid isPermaLink="true">http://localhost:4000/RTStory/tech/2015/06/25/initial-setup.html</guid>
 			</item>
 		
 			<item>
@@ -77,8 +77,8 @@ serving your { Personal } website for the first time.&lt;/p&gt;
 </description>
 				
 				<pubDate>Wed, 24 Jun 2015 00:00:00 +0200</pubDate>
-				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/24/intro-layout-tutorial.html</link>
-				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/24/intro-layout-tutorial.html</guid>
+				<link>http://localhost:4000/RTStory/tech/2015/06/24/intro-layout-tutorial.html</link>
+				<guid isPermaLink="true">http://localhost:4000/RTStory/tech/2015/06/24/intro-layout-tutorial.html</guid>
 			</item>
 		
 			<item>
@@ -91,8 +91,8 @@ by providing links for the icons for each resolution:&lt;/p&gt;
 </description>
 				
 				<pubDate>Mon, 22 Jun 2015 00:00:00 +0200</pubDate>
-				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/22/web-app-mode.html</link>
-				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/22/web-app-mode.html</guid>
+				<link>http://localhost:4000/RTStory/tech/2015/06/22/web-app-mode.html</link>
+				<guid isPermaLink="true">http://localhost:4000/RTStory/tech/2015/06/22/web-app-mode.html</guid>
 			</item>
 		
 			<item>
@@ -105,8 +105,8 @@ where you can place your thoughts about anything!&lt;/p&gt;
 </description>
 				
 				<pubDate>Sat, 20 Jun 2015 00:00:00 +0200</pubDate>
-				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/20/blog-tutorial.html</link>
-				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/20/blog-tutorial.html</guid>
+				<link>http://localhost:4000/RTStory/tech/2015/06/20/blog-tutorial.html</link>
+				<guid isPermaLink="true">http://localhost:4000/RTStory/tech/2015/06/20/blog-tutorial.html</guid>
 			</item>
 		
 			<item>
@@ -118,8 +118,8 @@ where you can place your thoughts about anything!&lt;/p&gt;
 </description>
 				
 				<pubDate>Fri, 19 Jun 2015 00:00:00 +0200</pubDate>
-				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/19/writing-posts.html</link>
-				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/19/writing-posts.html</guid>
+				<link>http://localhost:4000/RTStory/tech/2015/06/19/writing-posts.html</link>
+				<guid isPermaLink="true">http://localhost:4000/RTStory/tech/2015/06/19/writing-posts.html</guid>
 			</item>
 		
 			<item>
@@ -132,8 +132,8 @@ the form of a timeline of photos, dates and text descriptions.&lt;/p&gt;
 </description>
 				
 				<pubDate>Fri, 12 Jun 2015 00:00:00 +0200</pubDate>
-				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/12/timeline-tutorial.html</link>
-				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/12/timeline-tutorial.html</guid>
+				<link>http://localhost:4000/RTStory/tech/2015/06/12/timeline-tutorial.html</link>
+				<guid isPermaLink="true">http://localhost:4000/RTStory/tech/2015/06/12/timeline-tutorial.html</guid>
 			</item>
 		
 			<item>
@@ -145,8 +145,8 @@ the form of a timeline of photos, dates and text descriptions.&lt;/p&gt;
 </description>
 				
 				<pubDate>Thu, 11 Jun 2015 00:00:00 +0200</pubDate>
-				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/11/social-buttons-tutorial.html</link>
-				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/11/social-buttons-tutorial.html</guid>
+				<link>http://localhost:4000/RTStory/tech/2015/06/11/social-buttons-tutorial.html</link>
+				<guid isPermaLink="true">http://localhost:4000/RTStory/tech/2015/06/11/social-buttons-tutorial.html</guid>
 			</item>
 		
 	</channel>

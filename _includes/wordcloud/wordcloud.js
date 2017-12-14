@@ -1,5 +1,4 @@
-﻿function wc(){
-    // Encapsulate the word cloud functionality
+﻿    // Encapsulate the word cloud functionality
     function wordCloud(selector) {
 
         var fill = d3.scale.category20();
@@ -141,4 +140,3 @@
             showNewWords(myWordCloud, theme, year);
         });
 
-}
