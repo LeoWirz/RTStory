@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>{ John Smith }</title>
+		<description>Blog and website of John Smith, blogging mainly for tech. Opinions expressed are mine.</description>
+		<link>http://localhost:4000/personal-jekyll-theme</link>
+		<atom:link href="http://localhost:4000/personal-jekyll-theme/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Adding Javascript </title>
+				
+				
+					<description>&lt;p&gt;This is a funky test&lt;/p&gt;
+
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;/personal-jekyll-theme/js/wordcloud.js &quot;&gt;wc()&lt;/script&gt;
+
+&lt;script&gt;wc()&lt;/script&gt;
+
+</description>
+				
+				<pubDate>Thu, 14 Dec 2017 21:32:39 +0100</pubDate>
+				<link>http://localhost:4000/personal-jekyll-theme/javascript/2017/12/14/adding-javascript.html</link>
+				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/javascript/2017/12/14/adding-javascript.html</guid>
+			</item>
+		
+			<item>
+				<title>Welcome to Jekyll!</title>
+				
+				
+					<description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Fri, 08 Dec 2017 13:39:50 +0100</pubDate>
+				<link>http://localhost:4000/personal-jekyll-theme/jekyll/update/2017/12/08/welcome-to-jekyll.html</link>
+				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/jekyll/update/2017/12/08/welcome-to-jekyll.html</guid>
+			</item>
+		
+			<item>
+				<title>Welcome to { Personal } Jekyll Theme!</title>
+				
+				
+					<description>&lt;p&gt;Click the view more posts link bellow, to see the currently available post-tutorials to help you get your { Personal } website up and running quicker!&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sat, 27 Jun 2015 00:00:00 +0200</pubDate>
+				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/27/welcome.html</link>
+				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/27/welcome.html</guid>
+			</item>
+		
+			<item>
+				<title>Initial setup</title>
+				
+				
+					<description>&lt;p&gt;All features of { Personal } are controlled by setting values to variables that are defined in the
+_config.yml file. Let’s start with the initial variables that you have to set before
+serving your { Personal } website for the first time.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 25 Jun 2015 00:00:00 +0200</pubDate>
+				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/25/initial-setup.html</link>
+				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/25/initial-setup.html</guid>
+			</item>
+		
+			<item>
+				<title>Modifying the Header</title>
+				
+				
+					<description>&lt;p&gt;The intro part of the index page (Header) is consisted of four elements:&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Wed, 24 Jun 2015 00:00:00 +0200</pubDate>
+				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/24/intro-layout-tutorial.html</link>
+				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/24/intro-layout-tutorial.html</guid>
+			</item>
+		
+			<item>
+				<title>Web app mode</title>
+				
+				
+					<description>&lt;p&gt;You can make your website behave like a native web app in iOS and Android devices
+by providing links for the icons for each resolution:&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Mon, 22 Jun 2015 00:00:00 +0200</pubDate>
+				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/22/web-app-mode.html</link>
+				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/22/web-app-mode.html</guid>
+			</item>
+		
+			<item>
+				<title>Setting up the Blog</title>
+				
+				
+					<description>&lt;p&gt;A website is truly personal if it hosts your blog as well, this place of the internet
+where you can place your thoughts about anything!&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sat, 20 Jun 2015 00:00:00 +0200</pubDate>
+				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/20/blog-tutorial.html</link>
+				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/20/blog-tutorial.html</guid>
+			</item>
+		
+			<item>
+				<title>Writing posts</title>
+				
+				
+					<description>&lt;h3 id=&quot;creating-a-new-post&quot;&gt;Creating a new post&lt;/h3&gt;
+
+</description>
+				
+				<pubDate>Fri, 19 Jun 2015 00:00:00 +0200</pubDate>
+				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/19/writing-posts.html</link>
+				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/19/writing-posts.html</guid>
+			</item>
+		
+			<item>
+				<title>Adding a life event in the Timeline</title>
+				
+				
+					<description>&lt;p&gt;One of the coolest features of { Personal } is that enables you to tell your life’s story in
+the form of a timeline of photos, dates and text descriptions.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Fri, 12 Jun 2015 00:00:00 +0200</pubDate>
+				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/12/timeline-tutorial.html</link>
+				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/12/timeline-tutorial.html</guid>
+			</item>
+		
+			<item>
+				<title>Modifying the social buttons</title>
+				
+				
+					<description>&lt;p&gt;Social buttons (rendered above the footer) are great for having a small hub with all your social footprint.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 11 Jun 2015 00:00:00 +0200</pubDate>
+				<link>http://localhost:4000/personal-jekyll-theme/tech/2015/06/11/social-buttons-tutorial.html</link>
+				<guid isPermaLink="true">http://localhost:4000/personal-jekyll-theme/tech/2015/06/11/social-buttons-tutorial.html</guid>
+			</item>
+		
+	</channel>
+</rss>
