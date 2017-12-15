@@ -12,8 +12,10 @@
     
   
     
+  
+    
       <url>
-        <loc>http://localhost:4000/blog/</loc>
+        <loc>https://le4ker.github.io/blog/</loc>
         
           
           
@@ -26,7 +28,7 @@
   
     
       <url>
-        <loc>http://localhost:4000/</loc>
+        <loc>https://le4ker.github.io/</loc>
         
           
           
@@ -54,8 +56,10 @@
     
   
     
+  
+    
       <url>
-        <loc>http://localhost:4000/blog/page2/</loc>
+        <loc>https://le4ker.github.io/blog/page2/</loc>
         
           
           
@@ -68,7 +72,7 @@
   
     
       <url>
-        <loc>http://localhost:4000/blog/page3/</loc>
+        <loc>https://le4ker.github.io/blog/page3/</loc>
         
           
           
@@ -81,7 +85,7 @@
   
   
     <url>
-      <loc>http://localhost:4000/RTStory/javascript/2017/12/14/adding-javascript.html</loc>
+      <loc>https://le4ker.github.io/RTStory/javascript/2017/12/14/adding-javascript.html</loc>
       
         <lastmod>2017-12-14T21:32:39+01:00</lastmod>
       
@@ -90,7 +94,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/RTStory/jekyll/update/2017/12/08/welcome-to-jekyll.html</loc>
+      <loc>https://le4ker.github.io/RTStory/jekyll/update/2017/12/08/welcome-to-jekyll.html</loc>
       
         <lastmod>2017-12-08T13:39:50+01:00</lastmod>
       
@@ -99,7 +103,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/RTStory/tech/2015/06/27/welcome.html</loc>
+      <loc>https://le4ker.github.io/RTStory/tech/2015/06/27/welcome.html</loc>
       
         <lastmod>2015-06-27T00:00:00+02:00</lastmod>
       
@@ -108,7 +112,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/RTStory/tech/2015/06/25/initial-setup.html</loc>
+      <loc>https://le4ker.github.io/RTStory/tech/2015/06/25/initial-setup.html</loc>
       
         <lastmod>2015-06-25T00:00:00+02:00</lastmod>
       
@@ -117,7 +121,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/RTStory/tech/2015/06/24/intro-layout-tutorial.html</loc>
+      <loc>https://le4ker.github.io/RTStory/tech/2015/06/24/intro-layout-tutorial.html</loc>
       
         <lastmod>2015-06-24T00:00:00+02:00</lastmod>
       
@@ -126,7 +130,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/RTStory/tech/2015/06/22/web-app-mode.html</loc>
+      <loc>https://le4ker.github.io/RTStory/tech/2015/06/22/web-app-mode.html</loc>
       
         <lastmod>2015-06-22T00:00:00+02:00</lastmod>
       
@@ -135,7 +139,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/RTStory/tech/2015/06/20/blog-tutorial.html</loc>
+      <loc>https://le4ker.github.io/RTStory/tech/2015/06/20/blog-tutorial.html</loc>
       
         <lastmod>2015-06-20T00:00:00+02:00</lastmod>
       
@@ -144,7 +148,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/RTStory/tech/2015/06/19/writing-posts.html</loc>
+      <loc>https://le4ker.github.io/RTStory/tech/2015/06/19/writing-posts.html</loc>
       
         <lastmod>2015-06-19T00:00:00+02:00</lastmod>
       
@@ -153,7 +157,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/RTStory/tech/2015/06/12/timeline-tutorial.html</loc>
+      <loc>https://le4ker.github.io/RTStory/tech/2015/06/12/timeline-tutorial.html</loc>
       
         <lastmod>2015-06-12T00:00:00+02:00</lastmod>
       
@@ -162,7 +166,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/RTStory/tech/2015/06/11/social-buttons-tutorial.html</loc>
+      <loc>https://le4ker.github.io/RTStory/tech/2015/06/11/social-buttons-tutorial.html</loc>
       
         <lastmod>2015-06-11T00:00:00+02:00</lastmod>
       
@@ -171,7 +175,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/RTStory/tech/2015/06/10/contact-tutorial.html</loc>
+      <loc>https://le4ker.github.io/RTStory/tech/2015/06/10/contact-tutorial.html</loc>
       
         <lastmod>2015-06-10T00:00:00+02:00</lastmod>
       
