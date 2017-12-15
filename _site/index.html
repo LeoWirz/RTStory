@@ -30,8 +30,10 @@
   
 
   <!-- Custom Javascript-->
-  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/d3.v4.min.js"></script>
   <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+  <script src="https://unpkg.com/d3-simple-slider@0.2.0/build/d3-simple-slider.js"></script>
+  <script src="d3.slider.js"></script>
   <script src="/RTStory/js/wordcloud.js "></script>
 
   <!-- Custom Fonts -->
@@ -227,9 +229,15 @@ If you want to have a static message in your intro layout, disable the dynamic-t
     <div class="col-md-10 col-md-offset-1">
       <h2 id="themes-over-the-years">Themes over the years</h2>
 
-<p>Here goes the parts about the themes with the word cloud visualization</p>
+<p>Here goes the parts about the themes with the word cloud visualization
+<!-- Custom Javascript-->
+<script src="http://d3js.org/d3.v4.min.js"></script>
+<script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+<script src="https://unpkg.com/d3-simple-slider@0.2.0/build/d3-simple-slider.js"></script></p>
 
 <div id="cloud_container"></div>
+
+<div id="slider"></div>
 <script>wc()</script>
 
 
