@@ -72,7 +72,7 @@ function wc(){
     select = d3.select('body').append('select').attr("id", "themes");
 
     //Create a new instance of the word cloud visualisation.
-    var myWordCloud = wordCloud('body');
+    var myWordCloud = wordCloud('#cloud_container');
 
     // slider
     d3.select("body").append("input")
