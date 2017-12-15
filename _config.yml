@@ -41,7 +41,7 @@ favicon: "/img/favicon.ico"
 
 black-favicon: "/img/black-lab-glass.ico"
 
-background-img: "../img/intro-bg.jpg"
+background-img: "../img/fallbackimage.png"
 
 ##############################
 # Dynamic Text on the Header #
@@ -55,8 +55,8 @@ type-speed: 10
 start-delay: 200
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
-  - text: "The lower you fall, the higher you'll fly."
-  - text: "Where’s your will to be weird?"
+  - text: "An RTS story"
+  #- text: "Where’s your will to be weird?"
 
 me-img: "/img/jetpacktocat.png"
 
@@ -197,8 +197,9 @@ keybase-in-footer: True
 
 pages_list:
   About: 'about'
-  Blog: 'latest-post'
-  Timeline: 'timeline'
+  Themes: 'themes'
+  #Blog: 'latest-post'
+  #Timeline: 'timeline'
   Contact: 'contact'
 
 # Exclusion list from the generated _site

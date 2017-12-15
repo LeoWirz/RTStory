@@ -10,5 +10,5 @@ This is a funky test
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
-<script src="{{ "/js/wordcloud.js " | prepend: site.baseurl}}">wc()</script>
+<script src="{{ "/js/wordcloud.js " | prepend: site.baseurl}}"></script>
 <script>wc()</script>

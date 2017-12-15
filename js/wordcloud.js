@@ -1,6 +1,4 @@
-var svg = 'eh'
 
-alert("ouia");
 function wc(){
     // Encapsulate the word cloud functionality
     function wordCloud(selector) {

@@ -16,7 +16,7 @@
 
 &lt;script src=&quot;https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js&quot;&gt;&lt;/script&gt;
 
-&lt;script src=&quot;/RTStory/js/wordcloud.js &quot;&gt;wc()&lt;/script&gt;
+&lt;script src=&quot;/RTStory/js/wordcloud.js &quot;&gt;&lt;/script&gt;
 
 &lt;script&gt;wc()&lt;/script&gt;
 
