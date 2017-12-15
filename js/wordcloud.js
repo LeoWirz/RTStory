@@ -7,10 +7,10 @@ function wc(){
 
         //Construct the word cloud's SVG element
         var svg = d3.select(selector).append("svg")
-            .attr("width", 1000)
+            .attr("width", 900)
             .attr("height", 500)
             .append("g")
-            .attr("transform", "translate(500,250)");
+            .attr("transform", "translate(450,250)");
 
         //Draw the word cloud
         function draw(words) {
@@ -56,7 +56,7 @@ function wc(){
             // of the wordCloud return value.
             update: function (words) {
                 console.log(words);
-                d3.layout.cloud().size([1000, 500])
+                d3.layout.cloud().size([900, 500])
                     .words(words)
                     .padding(0)
                     .rotate(0)
@@ -68,51 +68,27 @@ function wc(){
         };
 
     }
+   
+    var options = '';
 
-    // Dummy Slider START
-    var years_data = d3.range(0, 3).map(function (d) { return new Date(1970 + d, 10, 3); });
-    var slider = d3.sliderHorizontal()
-      .min(d3.min(years_data))
-      .max(d3.max(years_data))
-      .step(1000 * 60 * 60 * 24 * 365)
-      .width(900)
-      .tickFormat(d3.timeFormat('%Y'))
-      .tickValues(years_data)
-      .on('onchange', val => {
-        d3.select("span#value").text(d3.timeFormat('%Y')(val));
-        YEAR  = d3.timeFormat('%Y')(val);
-      });
+    for(var i = 1900; i <= 2017; i++)
+    {
+        if(i%10 == 0){
+            options += "<option value="+i+" label="+i+">";
+        }
+        else{
+            options += "<option value="+i+">";
+        }
+    }
 
-    var g = d3.select("div#slider").append("svg")
-      .attr("width", 1100)
-      .attr("height", 100)
-      .append("g")
-      .attr("transform", "translate(30,30)");
-
-    g.call(slider);
-
-    d3.select("span#value").text(d3.timeFormat('%Y')(slider.value()));
-    // Dummy Slider END
-
-    select = d3.select('body').append('select').attr("id", "themes");
+    document.getElementById('tickmarks').innerHTML = options;
 
     //Create a new instance of the word cloud visualisation.
     var myWordCloud = wordCloud('#cloud_container');
 
-    // slider
-    d3.select("body").append("input")
-        .attr("type", "range")
-        .attr("min", "1900")
-        .attr("max", "2017")
-        .attr("value", "2017")
-        .attr("id", "year")
-        .attr("autofocus", "true");
-
-    // the date text
-    d3.select("body").insert("h2", ":first-child").text(d3.select("#year").node().value);
-
     // was the slider used?
     d3.select("#year").on("input", function () {
+        console.log(this.value)
         year = this.value;
         showNewWords(myWordCloud, theme, year);
         d3.select("h2").text(d3.select("#year").node().value);
@@ -138,14 +114,13 @@ function wc(){
 
     // load json data
     var json_data;
-    var genres;
 
     d3.json("themes_by_year_accent.json", function (data) {
         json_data = data;
 
         // populate drobdown menu
         var possible_themes = Object.keys(json_data);
-        var select = document.getElementById("themes");
+        var select = document.getElementById("themes_drop");
         for (var i = 0; i < possible_themes.length; i++) {
             var option = document.createElement('option');
             option.text = option.value = possible_themes[i];
@@ -153,15 +128,15 @@ function wc(){
         }
         theme = select.options[select.selectedIndex].value;
 
-        showNewWords(myWordCloud, theme, 2017);
+        showNewWords(myWordCloud, theme, 1980);
     });
 
     // dropdown change
     var theme;
     var year;
-    d3.select('#themes')
+    d3.select('#themes_drop')
         .on("change", function () {
-            var sect = document.getElementById("themes");
+            var sect = document.getElementById("themes_drop");
             var section = sect.options[sect.selectedIndex].value;
             theme = section;
             showNewWords(myWordCloud, theme, year);

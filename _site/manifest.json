@@ -32,6 +32,6 @@
       "type": "image/png"
     }
   ],
-  "start_url": "http://localhost:4000/RTStory",
+  "start_url": "https://le4ker.github.io/RTStory",
   "display": "standalone"
 }
