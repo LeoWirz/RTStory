@@ -91,7 +91,7 @@ function wc(){
         console.log(this.value)
         year = this.value;
         showNewWords(myWordCloud, theme, year);
-        d3.select("h2").text(d3.select("#year").node().value);
+        //d3.select("h2").text(d3.select("#year").node().value);
     });
 
     function showNewWords(vis, theme, year) {

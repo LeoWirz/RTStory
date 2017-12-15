@@ -29,7 +29,7 @@ force-https: True
 #############
 
 lang: "en"
-author: "John Smith"
+author: "Leonardo Wirz"
 title: "{ RTStory }"
 description: "Datastory for ADA course 2017"
 keywords: "awesome, absolutly need it"
@@ -57,10 +57,10 @@ type-speed: 10
 start-delay: 200
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
-  - text: "An RTS story"
+  #- text: "An RTS story"
   #- text: "Where’s your will to be weird?"
 
-me-img: "/img/jetpacktocat.png"
+#me-img: "/img/jetpacktocat.png"
 
 # To use facebook profile pic comment the previous line and uncomment the following
 # line, and replace 'user_id' with your facebook user id.
