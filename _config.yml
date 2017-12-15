@@ -29,7 +29,7 @@ force-https: True
 #############
 
 lang: "en"
-author: "Leonardo Wirz"
+author: "Mohammad, Sina and Leonardo"
 title: "{ RTStory }"
 description: "Datastory for ADA course 2017"
 keywords: "awesome, absolutly need it"
@@ -85,7 +85,7 @@ lines: # You can add HTML Tags in the Text
 ##############################
 # Color the browser elements #
 ##############################
-color-browser: "#550011"
+color-browser: "#000000"
 apple-status-bar-style: "black"
 
 ################
