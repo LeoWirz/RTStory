@@ -71,7 +71,7 @@ function wc(){
             s = Object.values(json_data[theme][year]);
         }
         catch(err){
-            w = ["no data"]
+            w = [""]
             s = [100]
         }
         return w.map(function (d, i) {

@@ -29,37 +29,32 @@
   <link href="/RTStory/css/timeline.css" rel="stylesheet">
   
 
-  <!-- custom mohammad scripts-->
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
-  crossorigin=""/>
-
-  <script src="/RTStory/js/heatmap_data.js "></script>
-  <script src="/RTStory/js/heatmap.min.js "></script>
-
-
-  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
-  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
-  crossorigin=""></script>
-
-  <script src="/RTStory/js/heatmap_overlay.js "></script>
-  <script src="/RTStory/js/code2genre.js "></script>
-  <script src="/RTStory/js/genre2code.js "></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/css/select2.css" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/js/select2.js"></script>
-
-  <!--momo part end-->
 
   <!-- Custom Javascript-->
+  <!-- Custom Leo-->
+
   <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
   <script src="https://unpkg.com/d3-simple-slider@0.2.0/build/d3-simple-slider.js"></script>
   <script src="/RTStory/js/wordcloud.js "></script>
+
+  <!-- Custom Mohammad-->
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+  crossorigin=""/>
+  <script src="/RTStory/js/heatmap_data.js "></script>
+  <script src="/RTStory/js/heatmap.min.js "></script>
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+  crossorigin=""></script>
+  <script src="/RTStory/js/heatmap_overlay.js "></script>
+  <script src="/RTStory/js/code2genre.js "></script>
+  <script src="/RTStory/js/genre2code.js "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/css/select2.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/js/select2.js"></script>
+  <!--Custom Javascript end-->
 
   <!-- Custom Fonts -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -105,7 +100,7 @@
 <meta name="msapplication-navbutton-color" content="#000000">
 <!-- iOS Safari -->
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
 
 
   
@@ -354,11 +349,15 @@
             </li>
           
             <li>
-              <a class="page-scroll" href="#maps"> Maps </a>
+              <a class="page-scroll" href="#social"> Social Phenomenas </a>
             </li>
           
             <li>
-              <a class="page-scroll" href="#social"> Social Phenomenas </a>
+              <a class="page-scroll" href="#gender"> Gender </a>
+            </li>
+          
+            <li>
+              <a class="page-scroll" href="#maps"> Maps </a>
             </li>
           
             <li>
@@ -455,7 +454,11 @@
       
         
       
+        
+      
     
+      
+        
       
         
       
@@ -542,6 +545,182 @@
         
       
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+<!-- Gender Start -->
+
+<section id="social" class="container content-section text-center">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2 id="main-social-phenomenas">Main social phenomenas</h2>
+
+<p><select id="favoriteThemes" name="form_select" style="background-color:black">
+ <option value="terrorisme">Terrorism</option>
+ <option value="vote">Women's voting right</option>
+ <option value="famille">Famille</option>
+ <option value="feminisme">Feminism</option>
+ <option value="homosexualite">Homosexuality</option>
+ <option value="mariage">Mariage</option>
+</select></p>
+
+<script type="text/javascript">
+    document.getElementById('favoriteThemes').addEventListener('change', function () {
+        $("#graph_container").children().hide();
+        document.getElementById(this.value).style.display = "inline";
+        //$("#"+this.value).show();
+    });
+</script>
+
+<div id="graph_container">
+    <!--<iframe id="feminisme" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed?link=false"></iframe>
+    <iframe id="vote" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/2.embed?link=false"></iframe>-->
+    <iframe id="homosexualite" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/6.embed?link=false"></iframe>
+    <iframe id="terrorisme" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/17.embed?link=false"></iframe>
+    <iframe id="famille" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/9.embed?link=false"></iframe>
+    <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed?link=false"></iframe>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Gender End -->
+
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+<!-- Themes Start -->
+
+<section id="gender" class="container content-section text-center">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2 id="main-social-phenomenas">Main social phenomenas</h2>
+
+<p><select id="favoriteJob" name="form_select" style="background-color:black">
+ <option value="1">Commentator</option>
+ <option value="2">Presenter</option>
+ <option value="3">Direction</option>
+ <option value="4">Journalist</option>
+ <option value="5">Producer</option>
+ <option value="6">Interviewed</option>
+ <option value="7">Director</option>
+ <option value="8">Interviewer</option>
+ <option value="9">Weather presenter</option>
+ <option value="10">Various</option>
+</select></p>
+
+<script type="text/javascript">
+    document.getElementById('favoriteJob').addEventListener('change', function () {
+        $("#gender_graph_container").children().hide();
+        document.getElementById(this.value).style.display = "inline";
+        //$("#"+this.value).show();
+    });
+</script>
+
+<div id="gender_graph_container">
+    <iframe id="1" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/70.embed?link=false"></iframe>
+    <iframe id="2" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/68.embed?link=false"></iframe>
+    <iframe id="3" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/66.embed?link=false"></iframe>
+    <iframe id="4" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/64.embed?link=false"></iframe>
+    <iframe id="5" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/62.embed?link=false"></iframe>
+    <iframe id="6" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/60.embed?link=false"></iframe>
+    <iframe id="7" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/58.embed?link=false"></iframe>
+    <iframe id="8" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/56.embed?link=false"></iframe>
+    <iframe id="9" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/54.embed?link=false"></iframe>
+    <iframe id="10" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/52.embed?link=false"></iframe>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Themes End -->
+
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
       
         
       
@@ -1085,87 +1264,6 @@ console.log(d3.timeDay.offset(h, 1));
         
       
         
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-          
-<!-- Gender Start -->
-
-<section id="social" class="container content-section text-center">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <h2 id="main-social-phenomenas">Main social phenomenas</h2>
-
-<p><select id="favoriteThemes" name="form_select" style="background-color:black">
- <option value="terrorisme">Terrorism</option>
- <option value="vote">Women's voting right</option>
- <option value="famille">Famille</option>
- <option value="feminisme">Feminism</option>
- <option value="homosexualite">Homosexuality</option>
- <option value="mariage">Mariage</option>
-</select></p>
-
-<script type="text/javascript">
-    document.getElementById('favoriteThemes').addEventListener('change', function () {
-        $("#graph_container").children().hide();
-        document.getElementById(this.value).style.display = "inline";
-        //$("#"+this.value).show();
-    });
-</script>
-
-<div id="graph_container">
-    <iframe id="feminisme" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed?link=false"></iframe>
-    <iframe id="homosexualite" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/6.embed?link=false"></iframe>
-    <iframe id="terrorisme" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/17.embed?link=false"></iframe>
-    <iframe id="vote" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/2.embed?link=false"></iframe>
-    <iframe id="famille" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/9.embed?link=false"></iframe>
-    <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed?link=false"></iframe>
-</div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Gender End -->
-
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-      
-        
-      
-        
-      
-        
           
 <!-- Contact Start -->
 
@@ -1203,6 +1301,8 @@ console.log(d3.timeDay.offset(h, 1));
 
 <!-- Contact End -->
 
+        
+      
         
       
         

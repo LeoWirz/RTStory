@@ -1,0 +1,40 @@
+---
+layout: null
+section-type: gender
+title: Gender inequalities
+---
+## Main social phenomenas
+
+<select id="favoriteJob" name="form_select" style="background-color:black">
+ <option value ="1">Commentator</option>
+ <option value ="2">Presenter</option>
+ <option value ="3">Direction</option>
+ <option value ="4">Journalist</option>
+ <option value ="5">Producer</option>
+ <option value ="6">Interviewed</option>
+ <option value ="7">Director</option>
+ <option value ="8">Interviewer</option>
+ <option value ="9">Weather presenter</option>
+ <option value ="10">Various</option>
+</select>
+
+<script type="text/javascript">
+    document.getElementById('favoriteJob').addEventListener('change', function () {
+        $("#gender_graph_container").children().hide();
+        document.getElementById(this.value).style.display = "inline";
+        //$("#"+this.value).show();
+    });
+</script>
+
+<div id="gender_graph_container">
+    <iframe id="1" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/70.embed?link=false"></iframe>
+    <iframe id="2" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/68.embed?link=false"></iframe>
+    <iframe id="3" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/66.embed?link=false"></iframe>
+    <iframe id="4" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/64.embed?link=false"></iframe>
+    <iframe id="5" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/62.embed?link=false"></iframe>
+    <iframe id="6" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/60.embed?link=false"></iframe>
+    <iframe id="7" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/58.embed?link=false"></iframe>
+    <iframe id="8" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/56.embed?link=false"></iframe>
+    <iframe id="9" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/54.embed?link=false"></iframe>
+    <iframe id="10" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/52.embed?link=false"></iframe>
+</div>

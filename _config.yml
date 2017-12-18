@@ -86,7 +86,7 @@ lines: # You can add HTML Tags in the Text
 # Color the browser elements #
 ##############################
 color-browser: "#000000"
-apple-status-bar-style: "black"
+apple-status-bar-style: "white"
 
 ################
 # Web app mode #
@@ -200,8 +200,9 @@ keybase-in-footer: False
 pages_list:
   About: 'about'
   Themes: 'themes'
-  Maps: 'maps'
   Social Phenomenas: 'social'
+  Gender: 'gender'
+  Maps: 'maps'
   #Blog: 'latest-post'
   #Timeline: 'timeline'
   Contact: 'contact'
