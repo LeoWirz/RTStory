@@ -12,40 +12,20 @@ Geographica theme of programs
         <h2> Genres </h2>
         <select id="genresList" title="genres" multiple="multiple">
         </select>
-        <!--<div id="fuzzSearch">-->
-            <!--<div id="fuzzNameContainer">-->
-                <!--<span class="fuzzName"></span>-->
-                <!--<span class="fuzzArrow"></span>-->
-                <!--</div>-->
-                <!--<div id="fuzzDropdownContainer">-->
-                    <!--<input type="text" value="" class="fuzzMagicBox" placeholder="search.."/>-->
-                    <!--<span class="fuzzSearchIcon"></span>-->
-                    <!--<ul id="fuzzResults">-->
-                        <!--</ul>-->
-                        <!--</div>-->
-                        <!--</div>-->
-                        <!--<script>-->
-                            <!--$('#fuzzOptionsList').fuzzyDropdown({-->
-                            <!--mainContainer: '#fuzzSearch',-->
-                            <!--arrowUpClass: 'fuzzArrowUp',-->
-                            <!--selectedClass: 'selected',-->
-                            <!--enableBrowserDefaultScroll: true-->
-                            <!--});-->
-                            <!--</script>-->
 
-                        </div>
+    </div>
 
-                        <div id="map-container"></div>
+    <div id="map-container" style="width: 900px;"></div>
 
-                        <div id="vis">
-                            <button id="play-button">Play</button>
-                        </div>
+    <div id="vis">
+        <button id="play-button">Play</button>
+    </div>
 
 
-                        <script>
+    <script>
 
-                            var formatDateIntoYear = d3.timeFormat("%b %Y");
-                            var formatDate = d3.timeFormat("%b %Y");
+        var formatDateIntoYear = d3.timeFormat("%b %Y");
+        var formatDate = d3.timeFormat("%b %Y");
     //    var parseDate = d3.timeParse("%m/%d/%y");
     var parseDate = d3.timeParse("%d/%m/%Y");
 

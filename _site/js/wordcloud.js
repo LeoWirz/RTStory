@@ -86,7 +86,7 @@ function wc(){
     // Encapsulate the word cloud functionality
     function wordCloud(selector) {
 
-        var fill = d3.scale.category20();
+        var fill = d3.scaleOrdinal(d3.schemeCategory20);
 
         //Construct the word cloud's SVG element
         var svg = d3.select(selector).append("svg")
