@@ -1,0 +1,31 @@
+---
+layout: null
+section-type: social
+title: Main Social Phenomenas
+---
+## Main social phenomenas
+
+<select id="favoriteThemes" name="form_select" style="background-color:black">
+   <option value ="terrorisme">Terrorisme</option>
+   <option value ="vote">Droit de vote des femmes</option>
+   <option value ="famille">Famille</option>
+   <option value ="fem">Feminisme</option>
+   <option value ="homosexualite">Homosexualité</option>
+   <option value ="mariage">Mariage</option>
+</select>
+
+<script type="text/javascript">
+    document.getElementById('favoriteThemes').addEventListener('change', function () {
+        $("#graph_container").children().hide(); 
+        $("#"+this.value).show();
+    });
+</script>
+
+<div id="graph_container">
+    <iframe id="terrorisme" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/17.embed?link=false"></iframe>
+    <iframe id="vote" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/2.embed?link=false"></iframe>
+    <iframe id="famille" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/9.embed?link=false"></iframe>
+    <iframe id="fem" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed?link=false"></iframe>
+    <iframe id="homosexualite" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/6.embed?link=false"></iframe>
+    <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed?link=false"></iframe>
+</div>

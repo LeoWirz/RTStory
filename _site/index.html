@@ -133,7 +133,7 @@
             </li>
           
             <li>
-              <a class="page-scroll" href="#gender"> Gender </a>
+              <a class="page-scroll" href="#social"> Social Phenomenas </a>
             </li>
           
             <li>
@@ -184,7 +184,7 @@
     <div class="col-md-10 col-md-offset-1">
       <h2 id="about">About</h2>
 
-<p>Description of the project, the motivation and the questions.</p>
+<p>The popular media is an (imperfect) mirror of the society. In this project, we want to study the effect of social trends and events of the 20th century on TV/Radio broadcasts. The 20th century saw the invention and ubiquity of the broadcast media: first radio and then television. Having access to a wealth of information about TV/Radio emissions all the way from 1930’s until today, we believe we can track these events and gain unique insights into the evolution of Swiss society. To this end, we are going to mainly use the RTS dataset. However, to complement our analyses, we will potentially make use of Spinn3r, different Swiss Open datasets, and Wikimedia data as well.</p>
 
     </div>
   </div>
@@ -265,35 +265,33 @@
     <div class="col-md-10 col-md-offset-1">
       <h2 id="themes-over-the-years">Themes over the years</h2>
 
-<p>Here goes the parts about the themes with the word cloud visualization</p>
-
-<h3 id="this-file-supports-markdowns">this file supports markdowns</h3>
-
-<h4 id="this-is-a-small-text">this is a small text</h4>
-
-<p>this is a list:</p>
 <ol>
-  <li>first element</li>
-  <li>element</li>
+  <li><a href="#">=&gt; LEO</a> What type of programs were produced in each time period? What/Who are the dominant themes/characters for the different historical periods ?</li>
+  <li><a href="#">=&gt; LEO</a> General evolution of the emissions: How long does a show run (how many seasons)? What are the influence factors ? Is it linkable to the audience type ?</li>
 </ol>
 
-<div id="container">
+<div id="container" style="background-color: black">
     <div id="top">
-        <div id="cloud_container"></div>
-    </div>
-    <div id="bottom">
-        <div id="slider">
-            <input type="range" list="tickmarks" min="1900" max="2017" value="1980" id="year" />
-            <datalist id="tickmarks">
-            </datalist>
-        </div>
         <div id="drop">
+            Choose the theme type or genra :
             <select id="themes_drop" style="background-color:black"></select>
         </div>
     </div>
+    <div id="bottom">
+        <div id="cloud_container" style="border:1px solid grey;margin: 25px;"></div>
+        <div id="slider">
+            <input type="range" list="tickmarks" min="1900" max="2017" value="1980" id="year" style="width: 90%; float: left;" />
+            <span id="range_value" style="float: right;">1980</span>
+            <datalist id="tickmarks">
+                <option value="2018" label="2018">test</option>
+                <option style="color:white" value="null">select one option</option>
+
+            </datalist>
+        </div>
+        
+    </div>
 </div>
 
-<h4 id="wordcloud">wordcloud</h4>
 <script>wc()</script>
 
 
@@ -316,8 +314,6 @@
         
       
     
-      
-        
       
         
       
@@ -372,7 +368,23 @@
       
         
       
+        
+      
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -386,16 +398,16 @@
           
 <!-- Gender Start -->
 
-<section id="gender" class="container content-section text-center">
+<section id="social" class="container content-section text-center">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h2 id="here-goes-to-title">Here goes to title</h2>
+      <h2 id="main-social-phenomenas">Main social phenomenas</h2>
 
 <p><select id="favoriteThemes" name="form_select" style="background-color:black">
    <option value="terrorisme">Terrorisme</option>
-   <option value="droit_de_vote">Droit de vote des femmes</option>
+   <option value="vote">Droit de vote des femmes</option>
    <option value="famille">Famille</option>
-   <option value="feminisme">Féminisme</option>
+   <option value="fem">Feminisme</option>
    <option value="homosexualite">Homosexualité</option>
    <option value="mariage">Mariage</option>
 </select></p>
@@ -408,12 +420,12 @@
 </script>
 
 <div id="graph_container">
-    <iframe id="terrorisme" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/17.embed"></iframe>
-    <iframe id="droit_de_vote" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/2.embed"></iframe>
-    <iframe id="famille" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/9.embed"></iframe>
-    <iframe id="feminisme" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed"></iframe>
-    <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed"></iframe>
-    <iframe id="homosexualite" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/6.embed"></iframe>
+    <iframe id="terrorisme" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/17.embed?link=false"></iframe>
+    <iframe id="vote" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/2.embed?link=false"></iframe>
+    <iframe id="famille" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/9.embed?link=false"></iframe>
+    <iframe id="fem" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed?link=false"></iframe>
+    <iframe id="homosexualite" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/6.embed?link=false"></iframe>
+    <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed?link=false"></iframe>
 </div>
 
     </div>
@@ -422,20 +434,6 @@
 
 <!-- Gender End -->
 
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         

@@ -5,31 +5,29 @@ title: Themes
 ---
 ## Themes over the years
 
-Here goes the parts about the themes with the word cloud visualization
+1. [=\> LEO](#) What type of programs were produced in each time period? What/Who are the dominant themes/characters for the different historical periods ?
+2. [=\> LEO](#) General evolution of the emissions: How long does a show run (how many seasons)? What are the influence factors ? Is it linkable to the audience type ? 
 
-### this file supports markdowns
-
-#### this is a small text
-
-this is a list:
-1. first element
-2. element 
-
-<div id="container">
+<div id="container"  style="background-color: black">
     <div id="top">
-        <div id="cloud_container"></div>
-    </div>
-    <div id="bottom">
-        <div id="slider">
-            <input type="range" list="tickmarks" min="1900" max="2017" value="1980" id="year">
-            <datalist id="tickmarks">
-            </datalist>
-        </div>
         <div id="drop">
+            Choose the theme type or genra :
             <select id="themes_drop" style="background-color:black"></select>
         </div>
     </div>
+    <div id="bottom">
+        <div id="cloud_container" style="border:1px solid grey;margin: 25px;"></div>
+        <div id="slider">
+            <input type="range" list="tickmarks" min="1900" max="2017" value="1980" id="year" style="width: 90%; float: left;">
+            <span id="range_value" style="float: right;">1980</span>
+            <datalist id="tickmarks">
+                <option value="2018" label="2018" >test</option>
+                <option style="color:white" value="null">select one option</option>
+
+            </datalist>
+        </div>
+        
+    </div>
 </div>
 
-#### wordcloud 
 <script>wc()</script>

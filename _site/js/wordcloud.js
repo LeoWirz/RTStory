@@ -47,6 +47,7 @@ function wc(){
         console.log(this.value)
         year = this.value;
         showNewWords(myWordCloud, theme, year);
+        document.getElementById('range_value').innerHTML=year; 
         //d3.select("h2").text(d3.select("#year").node().value);
     });
 
