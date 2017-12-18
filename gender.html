@@ -5,4 +5,31 @@ title: Gender distribution
 ---
 ## Gender Distribution
 
-Analysis on gender distribution
+
+<select id="favoriteThemes" name="form_select" onchange="showDiv(this)">
+   <option value ="1">Terrorisme</option>
+   <option value ="2">Droit de vote des femmes</option>
+   <option value ="3">Famille</option>
+   <option value ="4">Féminisme</option>
+   <option value ="5">Homosexualité</option>
+   <option value ="6">Mariage</option>
+
+</select>
+<script type="text/javascript">
+document.getElementById('favoriteThemes').addEventListener('change', function () {
+    var style1 = this.value == 1 ? 'block' : 'none';
+    document.getElementById('droit-de-vote-femme').style.display = style1;
+    var style2 = this.value == 2 ? 'block' : 'none';
+    document.getElementById('famille').style.display = style2;
+    var style3 = this.value == 3 ? 'block' : 'none';
+    document.getElementById('feminisme').style.display = style3;
+    var style4 = this.value == 4 ? 'block' : 'none';
+    document.getElementById('homosexualite').style.display = style4;
+    var style5 = this.value == 5 ? 'block' : 'none';
+    document.getElementById('mariage').style.display = style5;
+    var style6 = this.value == 6 ? 'block' : 'none';
+    document.getElementById('terrorisme').style.display = style6;
+});
+</script>
+
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~sfa/2.embed"></iframe>

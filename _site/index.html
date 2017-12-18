@@ -186,13 +186,6 @@
 
 <p>Description of the project, the motivation and the questions.</p>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
-
-<script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
-
-<script src="/RTStory/js/wordcloud.js "></script>
-
-
     </div>
   </div>
 </section>
@@ -276,6 +269,8 @@
 
 <h3 id="this-file-supports-markdowns">this file supports markdowns</h3>
 
+<h4 id="this-is-a-small-text">this is a small text</h4>
+
 <p>this is a list:</p>
 <ol>
   <li>first element</li>
@@ -298,6 +293,7 @@
     </div>
 </div>
 
+<h4 id="wordcloud">wordcloud</h4>
 <script>wc()</script>
 
 
@@ -395,7 +391,33 @@
     <div class="col-md-10 col-md-offset-1">
       <h2 id="gender-distribution">Gender Distribution</h2>
 
-<p>Analysis on gender distribution</p>
+<p><select id="favoriteThemes" name="form_select" onchange="showDiv(this)">
+   <option value="1">Terrorisme</option>
+   <option value="2">Droit de vote des femmes</option>
+   <option value="3">Famille</option>
+   <option value="4">Féminisme</option>
+   <option value="5">Homosexualité</option>
+   <option value="6">Mariage</option></select></p>
+
+<p>&lt;/select&gt;
+<script type="text/javascript">
+document.getElementById('favoriteThemes').addEventListener('change', function () {
+    var style1 = this.value == 1 ? 'block' : 'none';
+    document.getElementById('droit-de-vote-femme').style.display = style1;
+    var style2 = this.value == 2 ? 'block' : 'none';
+    document.getElementById('famille').style.display = style2;
+    var style3 = this.value == 3 ? 'block' : 'none';
+    document.getElementById('feminisme').style.display = style3;
+    var style4 = this.value == 4 ? 'block' : 'none';
+    document.getElementById('homosexualite').style.display = style4;
+    var style5 = this.value == 5 ? 'block' : 'none';
+    document.getElementById('mariage').style.display = style5;
+    var style6 = this.value == 6 ? 'block' : 'none';
+    document.getElementById('terrorisme').style.display = style6;
+});
+</script></p>
+
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~sfa/2.embed"></iframe>
 
     </div>
   </div>
@@ -636,7 +658,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, '', 'https://le4ker.github.io/RTStory/');
+    history.pushState({}, '', 'http://localhost:4000/RTStory/');
   }
 }
 </script>
