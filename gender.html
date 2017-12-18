@@ -3,33 +3,29 @@ layout: null
 section-type: gender
 title: Gender distribution
 ---
-## Gender Distribution
+## Here goes to title
 
-
-<select id="favoriteThemes" name="form_select" onchange="showDiv(this)">
-   <option value ="1">Terrorisme</option>
-   <option value ="2">Droit de vote des femmes</option>
-   <option value ="3">Famille</option>
-   <option value ="4">Féminisme</option>
-   <option value ="5">Homosexualité</option>
-   <option value ="6">Mariage</option>
-
+<select id="favoriteThemes" name="form_select" style="background-color:black">
+   <option value ="terrorisme">Terrorisme</option>
+   <option value ="droit_de_vote">Droit de vote des femmes</option>
+   <option value ="famille">Famille</option>
+   <option value ="feminisme">Féminisme</option>
+   <option value ="homosexualite">Homosexualité</option>
+   <option value ="mariage">Mariage</option>
 </select>
+
 <script type="text/javascript">
-document.getElementById('favoriteThemes').addEventListener('change', function () {
-    var style1 = this.value == 1 ? 'block' : 'none';
-    document.getElementById('droit-de-vote-femme').style.display = style1;
-    var style2 = this.value == 2 ? 'block' : 'none';
-    document.getElementById('famille').style.display = style2;
-    var style3 = this.value == 3 ? 'block' : 'none';
-    document.getElementById('feminisme').style.display = style3;
-    var style4 = this.value == 4 ? 'block' : 'none';
-    document.getElementById('homosexualite').style.display = style4;
-    var style5 = this.value == 5 ? 'block' : 'none';
-    document.getElementById('mariage').style.display = style5;
-    var style6 = this.value == 6 ? 'block' : 'none';
-    document.getElementById('terrorisme').style.display = style6;
-});
+    document.getElementById('favoriteThemes').addEventListener('change', function () {
+        $("#graph_container").children().hide(); 
+        $("#"+this.value).show();
+    });
 </script>
 
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~sfa/2.embed"></iframe>
+<div id="graph_container">
+    <iframe id="terrorisme" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/17.embed"></iframe>
+    <iframe id="droit_de_vote" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/2.embed"></iframe>
+    <iframe id="famille" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/9.embed"></iframe>
+    <iframe id="feminisme" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed"></iframe>
+    <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed"></iframe>
+    <iframe id="homosexualite" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/6.embed"></iframe>
+</div>
