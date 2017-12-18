@@ -39,11 +39,11 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
   {% if site.favicon %}
-    <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}{{site.favicon}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}{{site.favicon}}">
   {% endif %}
 
   {% if page.url == "/404.html" | prepend: {{site.baseurl}} %}
-    <meta http-equiv="refresh" content="20; url={{site.baseurl}}/">
+  <meta http-equiv="refresh" content="20; url={{site.baseurl}}/">
   {% endif %}
 
   {% include web-app.html %}
@@ -51,6 +51,230 @@
   {% include color-browser.html %}
 
   {% include syntax-highlight.html %}
+
+
+
+  <!--momo parts start-->
+
+  <style>
+
+  #map-container {
+    margin: auto;
+    height: 600px;
+    width: 75%;
+}
+
+#vis {
+    margin: auto;
+    width: 50%;
+    position: relative;
+}
+
+#play-button {
+    position: absolute;
+    /*top: 140px;*/
+    top: 75px;
+    left: -50px;
+    background: #f08080;
+    /*padding-right: 26px;*/
+    /*border-radius: 3px;*/
+    border: none;
+    color: white;
+    margin: 0;
+    /*padding: 0 12px;*/
+    width: 60px;
+    cursor: pointer;
+    height: 30px;
+}
+
+#play-button:hover {
+    background-color: #696969;
+}
+
+.ticks {
+    font-size: 10px;
+}
+
+.track,
+.track-inset,
+.track-overlay {
+    stroke-linecap: round;
+}
+
+.track {
+    stroke: #000;
+    stroke-opacity: 0.3;
+    stroke-width: 10px;
+}
+
+.track-inset {
+    stroke: #dcdcdc;
+    stroke-width: 8px;
+}
+
+.track-overlay {
+    pointer-events: stroke;
+    stroke-width: 50px;
+    stroke: transparent;
+    cursor: crosshair;
+}
+
+.handle {
+    fill: #fff;
+    stroke: #000;
+    stroke-opacity: 0.5;
+    stroke-width: 1.25px;
+}
+
+/* Drop-down list*/
+* {
+    box-sizing: border-box;
+}
+
+#fuzzSearch {
+    width: 50%;
+}
+
+#fuzzNameContainer {
+    height: 40px;
+    padding: 4px 10px;
+    border: 1px solid #999;
+    box-shadow: inset 0 0 2px 0px #333;
+    width: 100%;
+    cursor: pointer;
+    line-height: 1.9em;
+}
+
+.fuzzName {
+    display: inline-block;
+    width: 96%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fuzzArrow {
+    width: 0;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    border-width: 7px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    top: -3px;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+}
+
+.fuzzArrow:hover {
+    border-top-color: #888;
+}
+
+.fuzzArrow.fuzzArrowUp {
+    border-color: transparent transparent #333 transparent;
+    top: -11px;
+}
+
+#fuzzDropdownContainer {
+    display: none;
+    width: 100%;
+    margin: 0 0 5px 0;
+    border: 1px solid #999;
+    padding: 12px 4px 4px;
+    position: relative;
+}
+
+.fuzzMagicBox {
+    width: 99%;
+    height: 26px;
+    margin: 0 auto;
+}
+
+.fuzzSearchIcon {
+    width: 20px;
+    height: 14px;
+    position: relative;
+    display: inline-block;
+    background: transparent;
+    top: -20px;
+    left: 95%;
+}
+
+.fuzzSearchIcon:before,
+.fuzzSearchIcon:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 5px;
+}
+
+.fuzzSearchIcon:before {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid #aaa;
+}
+
+.fuzzSearchIcon:after {
+    height: 7px;
+    border-right: 1px solid #aaa;
+    top: 9px;
+    -webkit-transform: rotate(-32deg);
+    -ms-transform: rotate(-32deg);
+}
+
+#fuzzResults {
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+#fuzzResults li {
+    list-style: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: all 0.1s ease-out;
+}
+
+#fuzzResults li:hover,
+#fuzzResults li.selected {
+    color: #fff;
+    background: #1251a4;
+}
+
+.highlight {
+    color: red;
+}
+</style>
+
+<!-- custom mohammad scripts-->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+crossorigin=""/>
+
+<script src="{{ "/js/heatmap_data.js " | prepend: site.baseurl}}"></script>
+<script src="{{ "/js/heatmap.min.js " | prepend: site.baseurl}}"></script>
+
+
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+crossorigin=""></script>
+
+<script src="{{ "/js/heatmap_overlay.js " | prepend: site.baseurl}}"></script>
+<script src="{{ "/js/code2genre.js " | prepend: site.baseurl}}"></script>
+<script src="{{ "/js/genre2code.js " | prepend: site.baseurl}}"></script>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://rawgit.com/zeusdeux/fuzzy-dropdown/master/dist/fuzzy-dropdown.min.js'></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.js"></script>
+
+<!--momo part end-->
+
+
 
 </head>
 

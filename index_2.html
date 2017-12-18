@@ -1,77 +1,293 @@
----
-layout: null
-section-type: maps
-title: Map
----
-## Map
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
 
-Geographica theme of programs
+        #map-container {
+            margin: auto;
+            height: 600px;
+            width: 75%;
+        }
+
+        #vis {
+            margin: auto;
+            width: 50%;
+            position: relative;
+        }
+
+        body {
+            font-family: "avenir next", Arial, sans-serif;
+            font-size: 12px;
+            color: #696969;
+        }
+
+        #play-button {
+            position: absolute;
+            /*top: 140px;*/
+            top: 75px;
+            left: -50px;
+            background: #f08080;
+            /*padding-right: 26px;*/
+            /*border-radius: 3px;*/
+            border: none;
+            color: white;
+            margin: 0;
+            /*padding: 0 12px;*/
+            width: 60px;
+            cursor: pointer;
+            height: 30px;
+        }
+
+        #play-button:hover {
+            background-color: #696969;
+        }
+
+        .ticks {
+            font-size: 10px;
+        }
+
+        .track,
+        .track-inset,
+        .track-overlay {
+            stroke-linecap: round;
+        }
+
+        .track {
+            stroke: #000;
+            stroke-opacity: 0.3;
+            stroke-width: 10px;
+        }
+
+        .track-inset {
+            stroke: #dcdcdc;
+            stroke-width: 8px;
+        }
+
+        .track-overlay {
+            pointer-events: stroke;
+            stroke-width: 50px;
+            stroke: transparent;
+            cursor: crosshair;
+        }
+
+        .handle {
+            fill: #fff;
+            stroke: #000;
+            stroke-opacity: 0.5;
+            stroke-width: 1.25px;
+        }
+
+        /* Drop-down list*/
+        * {
+            box-sizing: border-box;
+        }
+
+        #fuzzSearch {
+            width: 50%;
+        }
+
+        #fuzzNameContainer {
+            height: 40px;
+            padding: 4px 10px;
+            border: 1px solid #999;
+            box-shadow: inset 0 0 2px 0px #333;
+            width: 100%;
+            cursor: pointer;
+            line-height: 1.9em;
+        }
+
+        .fuzzName {
+            display: inline-block;
+            width: 96%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .fuzzArrow {
+            width: 0;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+            border-width: 7px;
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            top: -3px;
+            -webkit-transition: all 0.1s ease-in;
+            transition: all 0.1s ease-in;
+        }
+
+        .fuzzArrow:hover {
+            border-top-color: #888;
+        }
+
+        .fuzzArrow.fuzzArrowUp {
+            border-color: transparent transparent #333 transparent;
+            top: -11px;
+        }
+
+        #fuzzDropdownContainer {
+            display: none;
+            width: 100%;
+            margin: 0 0 5px 0;
+            border: 1px solid #999;
+            padding: 12px 4px 4px;
+            position: relative;
+        }
+
+        .fuzzMagicBox {
+            width: 99%;
+            height: 26px;
+            margin: 0 auto;
+        }
+
+        .fuzzSearchIcon {
+            width: 20px;
+            height: 14px;
+            position: relative;
+            display: inline-block;
+            background: transparent;
+            top: -20px;
+            left: 95%;
+        }
+
+        .fuzzSearchIcon:before,
+        .fuzzSearchIcon:after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 5px;
+        }
+
+        .fuzzSearchIcon:before {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid #aaa;
+        }
+
+        .fuzzSearchIcon:after {
+            height: 7px;
+            border-right: 1px solid #aaa;
+            top: 9px;
+            -webkit-transform: rotate(-32deg);
+            -ms-transform: rotate(-32deg);
+        }
+
+        #fuzzResults {
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+
+        #fuzzResults li {
+            list-style: none;
+            margin-bottom: 10px;
+            padding: 10px;
+            transition: all 0.1s ease-out;
+        }
+
+        #fuzzResults li:hover,
+        #fuzzResults li.selected {
+            color: #fff;
+            background: #1251a4;
+        }
+
+        .highlight {
+            color: red;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+          integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+          crossorigin=""/>
+
+    <script src="heatmap_data.js"></script>
+    <script src="./heatmap.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+            integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+            crossorigin=""></script>
+            
+    <script src="./heatmap_overlay.js"></script>
+    <script src="./code2genre.js"></script>
+    <script src="./genre2code.js"></script>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://rawgit.com/zeusdeux/fuzzy-dropdown/master/dist/fuzzy-dropdown.min.js'></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+
+</head>
 
 <body>
-    <div id="control-pane">
-        <h2> Genres </h2>
-        <select id="genresList" title="genres" multiple="multiple">
-        </select>
-        <!--<div id="fuzzSearch">-->
-            <!--<div id="fuzzNameContainer">-->
-                <!--<span class="fuzzName"></span>-->
-                <!--<span class="fuzzArrow"></span>-->
-                <!--</div>-->
-                <!--<div id="fuzzDropdownContainer">-->
-                    <!--<input type="text" value="" class="fuzzMagicBox" placeholder="search.."/>-->
-                    <!--<span class="fuzzSearchIcon"></span>-->
-                    <!--<ul id="fuzzResults">-->
-                        <!--</ul>-->
-                        <!--</div>-->
-                        <!--</div>-->
-                        <!--<script>-->
-                            <!--$('#fuzzOptionsList').fuzzyDropdown({-->
-                            <!--mainContainer: '#fuzzSearch',-->
-                            <!--arrowUpClass: 'fuzzArrowUp',-->
-                            <!--selectedClass: 'selected',-->
-                            <!--enableBrowserDefaultScroll: true-->
-                            <!--});-->
-                            <!--</script>-->
+<div id="control-pane">
+    <h2> Genres </h2>
+    <select id="genresList" title="genres" multiple="multiple">
+    </select>
+    <!--<div id="fuzzSearch">-->
+        <!--<div id="fuzzNameContainer">-->
+            <!--<span class="fuzzName"></span>-->
+            <!--<span class="fuzzArrow"></span>-->
+        <!--</div>-->
+        <!--<div id="fuzzDropdownContainer">-->
+            <!--<input type="text" value="" class="fuzzMagicBox" placeholder="search.."/>-->
+            <!--<span class="fuzzSearchIcon"></span>-->
+            <!--<ul id="fuzzResults">-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<script>-->
+    <!--$('#fuzzOptionsList').fuzzyDropdown({-->
+    <!--mainContainer: '#fuzzSearch',-->
+    <!--arrowUpClass: 'fuzzArrowUp',-->
+    <!--selectedClass: 'selected',-->
+    <!--enableBrowserDefaultScroll: true-->
+    <!--});-->
+    <!--</script>-->
 
-                        </div>
+</div>
 
-                        <div id="map-container"></div>
+<div id="map-container"></div>
 
-                        <div id="vis">
-                            <button id="play-button">Play</button>
-                        </div>
+<div id="vis">
+    <button id="play-button">Play</button>
+</div>
 
 
-                        <script>
+<script>
 
-                            var formatDateIntoYear = d3.timeFormat("%b %Y");
-                            var formatDate = d3.timeFormat("%b %Y");
+    var formatDateIntoYear = d3.timeFormat("%b %Y");
+    var formatDate = d3.timeFormat("%b %Y");
     //    var parseDate = d3.timeParse("%m/%d/%y");
     var parseDate = d3.timeParse("%d/%m/%Y");
 
     var startDate = new Date("1930-01-01"),
-    endDate = new Date("2017-12-01");
+        endDate = new Date("2017-12-01");
 
 
     var margin = {top: 50, right: 50, bottom: 0, left: 50},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
 
     var svg = d3.select("#vis")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom);
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom);
 
     ////////// map ////////////
 
     var radius = 0.5,
-    minOpacity = 0,
-    maxOpacity = 0.5,
-    scaleRadius = true,
-    useLocalExtrema = true,
-    lat = 46.79,
-    lng = 8.20,
-    zoom = 8;
+        minOpacity = 0,
+        maxOpacity = 0.5,
+        scaleRadius = true,
+        useLocalExtrema = true,
+        lat = 46.79,
+        lng = 8.20,
+        zoom = 8;
     //            data = {
     //                max: 8,
     //                data: [{x: 24.6408, y: 46.7728, value: 3}, {x: 50.75, y: -1.55, data: 1}]
@@ -117,7 +333,7 @@ Geographica theme of programs
             'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under ' +
             '<a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
         }
-        );
+    );
 
     var map = new L.Map("map-container", {
         center: new L.LatLng(lat, lng),
@@ -208,8 +424,8 @@ Geographica theme of programs
 //            return my;
 //        };
 
-return my;
-}
+        return my;
+    }
 
     ////////// slider //////////
 
@@ -220,59 +436,59 @@ return my;
     var playButton = d3.select("#play-button");
 
     var x = d3.scaleTime()
-    .domain([startDate, endDate])
-    .range([0, targetValue])
-    .clamp(true);
+        .domain([startDate, endDate])
+        .range([0, targetValue])
+        .clamp(true);
 
     var slider = svg.append("g")
-    .attr("class", "slider")
-    .attr("transform", "translate(" + margin.left + "," + height / 5 + ")");
+        .attr("class", "slider")
+        .attr("transform", "translate(" + margin.left + "," + height / 5 + ")");
 
     slider.append("line")
-    .attr("class", "track")
-    .attr("x1", x.range()[0])
-    .attr("x2", x.range()[1])
-    .select(function () {
-        return this.parentNode.appendChild(this.cloneNode(true));
-    })
-    .attr("class", "track-inset")
-    .select(function () {
-        return this.parentNode.appendChild(this.cloneNode(true));
-    })
-    .attr("class", "track-overlay")
-    .call(d3.drag()
-        .on("start.interrupt", function () {
-            slider.interrupt();
+        .attr("class", "track")
+        .attr("x1", x.range()[0])
+        .attr("x2", x.range()[1])
+        .select(function () {
+            return this.parentNode.appendChild(this.cloneNode(true));
         })
-        .on("start drag", function () {
-            currentValue = d3.event.x;
-            update(x.invert(currentValue));
+        .attr("class", "track-inset")
+        .select(function () {
+            return this.parentNode.appendChild(this.cloneNode(true));
         })
+        .attr("class", "track-overlay")
+        .call(d3.drag()
+            .on("start.interrupt", function () {
+                slider.interrupt();
+            })
+            .on("start drag", function () {
+                currentValue = d3.event.x;
+                update(x.invert(currentValue));
+            })
         );
 
     slider.insert("g", ".track-overlay")
-    .attr("class", "ticks")
-    .attr("transform", "translate(0," + 18 + ")")
-    .selectAll("text")
-    .data(x.ticks(10))
-    .enter()
-    .append("text")
-    .attr("x", x)
-    .attr("y", 10)
-    .attr("text-anchor", "middle")
-    .text(function (d) {
-        return formatDateIntoYear(d);
-    });
+        .attr("class", "ticks")
+        .attr("transform", "translate(0," + 18 + ")")
+        .selectAll("text")
+        .data(x.ticks(10))
+        .enter()
+        .append("text")
+        .attr("x", x)
+        .attr("y", 10)
+        .attr("text-anchor", "middle")
+        .text(function (d) {
+            return formatDateIntoYear(d);
+        });
 
     var handle = slider.insert("circle", ".track-overlay")
-    .attr("class", "handle")
-    .attr("r", 9);
+        .attr("class", "handle")
+        .attr("r", 9);
 
     var label = slider.append("text")
-    .attr("class", "label")
-    .attr("text-anchor", "middle")
-    .text(formatDate(startDate))
-    .attr("transform", "translate(0," + (-25) + ")")
+        .attr("class", "label")
+        .attr("text-anchor", "middle")
+        .text(formatDate(startDate))
+        .attr("transform", "translate(0," + (-25) + ")")
 
 
     ////////// plot //////////
@@ -281,8 +497,8 @@ return my;
     var filtered_data;
 
     var plot = svg.append("g")
-    .attr("class", "plot")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("class", "plot")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     //    function loadData(start, len) {
     //        var points = heatmap_data.slice(start, start + len);
@@ -335,7 +551,7 @@ return my;
 
         d3.select('body')
         //            .select('#control-pane')
-        .select('#genresList')
+            .select('#genresList')
             //            .append('div')
             //            .append('select')
             //              .on('change',change)
@@ -353,16 +569,16 @@ return my;
                 return d
             });
 
-            $(document).ready(function() {
-                $('#genresList').select2();
+        $(document).ready(function() {
+            $('#genresList').select2();
 
-                $('#genresList').on('select2:select', function (e) {
-                    var data = e.params.data;
-                    console.log(data);
-                    console.log("Current Selection:");
-                    console.log($('#genresList').select2('data'));
-                });
+            $('#genresList').on('select2:select', function (e) {
+                var data = e.params.data;
+                console.log(data);
+                console.log("Current Selection:");
+                console.log($('#genresList').select2('data'));
             });
+        });
 
 //        d3.select('body')
 //            .select('#fuzzSearch')
@@ -378,19 +594,19 @@ return my;
 //        });
 
 
-drawPlot(dataset);
+        drawPlot(dataset);
 
-d3.select("#map-container")
-.datum(data)
-.call(leafletMap);
+        d3.select("#map-container")
+            .datum(data)
+            .call(leafletMap);
 
 
-playButton
-.on("click", function () {
-    var button = d3.select(this);
-    if (button.text() == "Pause") {
-        moving = false;
-        clearInterval(timer);
+        playButton
+            .on("click", function () {
+                var button = d3.select(this);
+                if (button.text() == "Pause") {
+                    moving = false;
+                    clearInterval(timer);
                     // timer = 0;
                     button.text("Play");
                 } else {
@@ -400,7 +616,7 @@ playButton
                 }
                 console.log("Slider moving: " + moving);
             })
-});
+    });
 
     function buildMap(obj) {
         let map = new Map();
@@ -449,11 +665,11 @@ playButton
         console.log(data.length)
         console.log("draw is called!")
         var locations = plot.select("#map-container")
-        .datum(data)
-        .call(myMap);
+            .datum(data)
+            .call(myMap);
 
 //        heatmapLayer.setData(loadData(count, 300));
-heatmapLayer.setData(loadData(data));
+        heatmapLayer.setData(loadData(data));
 //        count+=300;
 
 //        console.log(locations)
@@ -483,17 +699,17 @@ heatmapLayer.setData(loadData(data));
         // if filtered dataset has less circles than already existing, remove excess
 //        locations.exit()
 //            .remove();
-}
+    }
 
-function update(h) {
-    console.log(h);
+    function update(h) {
+        console.log(h);
 //        console.log(typeof h);
-console.log(d3.timeDay.offset(h, 1));
+        console.log(d3.timeDay.offset(h, 1));
         // update position and text of label according to slider scale
         handle.attr("cx", x(h));
         label
-        .attr("x", x(h))
-        .text(formatDate(h));
+            .attr("x", x(h))
+            .text(formatDate(h));
 
         // filter data set and redraw plot
         var newData = dataset.filter(function (d) {
@@ -502,7 +718,7 @@ console.log(d3.timeDay.offset(h, 1));
         drawPlot(newData);
 //        drawPlot(dataset);
 //        console.log(dataset.length)
-}
+    }
 
 </script>
 </body>

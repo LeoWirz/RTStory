@@ -65,14 +65,6 @@ function wc(){
         vis.update(getWord(theme, year));
     }
 
-    // gets news words with frequencies
-    try {
-    adddlert("Welcome guest!");
-}
-catch(err) {
-    document.getElementById("demo").innerHTML = err.message;
-}
-
     function getWord(theme, year) {
         try {
             w = Object.keys(json_data[theme][year]);
