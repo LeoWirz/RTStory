@@ -29,7 +29,7 @@ force-https: True
 #############
 
 lang: "en"
-author: "Mohammad, Sina and Leonardo"
+author: "Mohammad Yaghini, Sina Fakheri and Leonardo Wirz"
 title: "{ RTStory }"
 description: "Datastory for ADA course 2017"
 keywords: "awesome, absolutly need it"
@@ -187,9 +187,9 @@ err-404-img: "/img/labtocat.png"
 # GPG on Keybase #
 ##################
 
-keybase-username: johnsmith
-keybase-in-social: True
-keybase-in-footer: True
+keybase-username: none
+keybase-in-social: False
+keybase-in-footer: False
 
 ################################################################################
 
