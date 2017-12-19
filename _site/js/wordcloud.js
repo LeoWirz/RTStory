@@ -28,7 +28,7 @@ function wc(){
    for(var i = 1900; i <= 2017; i++)
    {
         // adds the label every 10 years
-        if(true){
+        if(i%10 == 0){
             options += "<option value=\""+i+"\" label=\""+i+"\">";
         }
         else{
@@ -159,6 +159,7 @@ function wordCloud(selector) {
             .rotate(0)
             .font("Impact")
             .fontSize(function (d) { return d.size; })
+            .spiral("archimedean")
             .on("end", draw)
             .start();
         }
