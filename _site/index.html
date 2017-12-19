@@ -95,9 +95,9 @@
 
   
 <!-- Chrome, Firefox OS and Opera -->
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#999999">
 <!-- Windows Phone -->
-<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="msapplication-navbutton-color" content="#999999">
 <!-- iOS Safari -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="white">
@@ -111,7 +111,7 @@
 
   <!--momo parts start-->
 
-  <style>
+<style>
 
   #map-container {
     margin: auto;
@@ -502,15 +502,16 @@
 
 <p>To have an ensemble view on the topics of the programs, the number of occurencies of each word by year was added.</p>
 
-<div id="container" style="background-color: black">
+<div id="container" style="background-color: #343434">
     <div id="top">
+        <button onclick="set_cloud(2000, 'genra')"></button>
         <div id="drop">
             Choose the theme type or genra :
-            <select id="themes_drop" style="background-color:black"></select>
+            <select id="themes_drop" style="background-color: black"></select>
         </div>
     </div>
     <div id="bottom">
-        <div id="cloud_container" style="border:1px solid grey;margin: 25px;padding: 10px"></div>
+        <div id="cloud_container" style="border:0px solid grey;margin: 25px;padding: 10px"></div>
         <div id="slider">
             <input type="range" list="tickmarks" min="1900" max="2017" value="1980" id="year" style="width: 90%; float: left;" />
             <span id="range_value" style="float: right;">1980</span>
@@ -523,7 +524,7 @@
     </div>
 </div>
 
-<script>wc()</script>
+<script>window.onload = function () { wc() }</script>
 
 
     </div>
@@ -598,11 +599,12 @@
 
 <div id="graph_container">
     <!--<iframe id="feminisme" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed?link=false"></iframe>
-    <iframe id="vote" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/2.embed?link=false"></iframe>-->
+    <iframe id="vote" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/2.embed?link=false"></iframe>
     <iframe id="homosexualite" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/6.embed?link=false"></iframe>
     <iframe id="terrorisme" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/17.embed?link=false"></iframe>
     <iframe id="famille" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/9.embed?link=false"></iframe>
     <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed?link=false"></iframe>
+    -->
 </div>
 
     </div>
@@ -668,6 +670,7 @@
 </script>
 
 <div id="gender_graph_container">
+    <!--
     <iframe id="1" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/70.embed?link=false"></iframe>
     <iframe id="2" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/68.embed?link=false"></iframe>
     <iframe id="3" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/66.embed?link=false"></iframe>
@@ -678,6 +681,7 @@
     <iframe id="8" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/56.embed?link=false"></iframe>
     <iframe id="9" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/54.embed?link=false"></iframe>
     <iframe id="10" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/52.embed?link=false"></iframe>
+-->
 </div>
 
     </div>
@@ -1456,7 +1460,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, '', 'http://localhost:4000/RTStory/');
+    history.pushState({}, '', 'https://le4ker.github.io/RTStory/');
   }
 }
 </script>

@@ -10,15 +10,16 @@ title: Themes
 
 To have an ensemble view on the topics of the programs, the number of occurencies of each word by year was added. 
 
-<div id="container"  style="background-color: black">
+<div id="container"  style="background-color: #343434">
     <div id="top">
+        <button onclick="set_cloud(2000, 'genra')"></button>
         <div id="drop">
             Choose the theme type or genra :
-            <select id="themes_drop" style="background-color:black"></select>
+            <select id="themes_drop" style="background-color: black"></select>
         </div>
     </div>
     <div id="bottom">
-        <div id="cloud_container" style="border:1px solid grey;margin: 25px;padding: 10px"></div>
+        <div id="cloud_container" style="border:0px solid grey;margin: 25px;padding: 10px"></div>
         <div id="slider">
             <input type="range" list="tickmarks" min="1900" max="2017" value="1980" id="year" style="width: 90%; float: left;">
             <span id="range_value" style="float: right;">1980</span>
@@ -31,4 +32,6 @@ To have an ensemble view on the topics of the programs, the number of occurencie
     </div>
 </div>
 
-<script>wc()</script>
+<script>window.onload = function () { wc() }</script>
+
+

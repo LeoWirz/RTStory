@@ -85,7 +85,7 @@ lines: # You can add HTML Tags in the Text
 ##############################
 # Color the browser elements #
 ##############################
-color-browser: "#000000"
+color-browser: "#999999"
 apple-status-bar-style: "white"
 
 ################

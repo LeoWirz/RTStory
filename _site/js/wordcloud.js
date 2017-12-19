@@ -1,4 +1,3 @@
-
 function wc(){
 
     var theme;
@@ -20,14 +19,14 @@ function wc(){
         }
         theme = select.options[select.selectedIndex].value;
 
-        showNewWords(myWordCloud, theme, 1980);
+        showNewWords(myWordCloud, theme, 2000);
     });
-   
-   // populate the options for the slider (1900 to 2017)
-    var options="";
 
-    for(var i = 1900; i <= 2017; i++)
-    {
+   // populate the options for the slider (1900 to 2017)
+   var options="";
+
+   for(var i = 1900; i <= 2017; i++)
+   {
         // adds the label every 10 years
         if(true){
             options += "<option value=\""+i+"\" label=\""+i+"\">";
@@ -53,12 +52,11 @@ function wc(){
 
     // set the onchange function for the dropdown
     d3.select('#themes_drop')
-        .on("change", function () {
-            var sect = document.getElementById("themes_drop");
-            var section = sect.options[sect.selectedIndex].value;
-            theme = section;
-            showNewWords(myWordCloud, theme, year);
-        });
+    .on("change", function () {
+        var sect = document.getElementById("themes_drop");
+        theme = sect.options[sect.selectedIndex].value;
+        showNewWords(myWordCloud, theme, year);
+    });
 
     // updadate the vis with new words
     function showNewWords(vis, theme, year) {
@@ -71,6 +69,7 @@ function wc(){
             s = Object.values(json_data[theme][year]);
         }
         catch(err){
+            //no word to display
             w = [""]
             s = [100]
         }
@@ -83,72 +82,85 @@ function wc(){
         });
     }
 
-    // Encapsulate the word cloud functionality
-    function wordCloud(selector) {
-
-        var fill = d3.scaleOrdinal(d3.schemeCategory20);
-
-        //Construct the word cloud's SVG element
-        var svg = d3.select(selector).append("svg")
-            .attr("width", 900)
-            .attr("height", 500)
-            .append("g")
-            .attr("transform", "translate(450,250)");
-
-        //Draw the word cloud
-        function draw(words) {
-            var cloud = svg.selectAll("g text")
-                .data(words, function (d) { return d.text; });
-
-            //Entering words
-            cloud.enter()
-                .append("text")
-                .style("font-family", "Impact")
-                .style("fill", function (d, i) { return fill(i); })
-                .attr("text-anchor", "middle")
-                .attr('font-size', 1)
-                .text(function (d) { return d.text; });
-
-            //Entering and exiting words
-            cloud
-                .transition()
-                .duration(1000)
-                .style("font-size", function (d) { return d.size + "px"; })
-                .attr("transform", function (d) {
-                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-                })
-                .style("fill-opacity", 1);
-
-            //Exiting words
-            cloud.exit()
-                .transition()
-                .duration(200)
-                .style('fill-opacity', 1e-6)
-                .attr('font-size', 1)
-                .remove();
-        }
 
 
-        //Use the module pattern to encapsulate the visualisation code. We'll
-        // expose only the parts that need to be public.
-        return {
+}
 
-            //Recompute the word cloud for a new set of words. This method will
-            // asycnhronously call draw when the layout has been computed.
-            //The outside world will need to call this function, so make it part
-            // of the wordCloud return value.
-            update: function (words) {
-                console.log(words);
-                d3.layout.cloud().size([900, 500])
-                    .words(words)
-                    .padding(0)
-                    .rotate(0)
-                    .font("Impact")
-                    .fontSize(function (d) { return d.size; })
-                    .on("end", draw)
-                    .start();
-            }
-        };
+function set_cloud(year, type){
+    document.getElementById("year").value = "2000";
+    document.getElementById("themes_drop").value = "Genra";
+
+}
+
+// Encapsulate the word cloud functionality
+function wordCloud(selector) {
+
+    var fill = d3.scaleOrdinal(d3.schemeCategory20);
+
+    //Construct the word cloud's SVG element
+    var svg = d3.select(selector).append("svg")
+    .attr("width", 900)
+    .attr("height", 500)
+    .append("g")
+    .attr("transform", "translate(450,250)");
+
+    //Draw the word cloud
+    function draw(words) {
+        var cloud = svg.selectAll("g text")
+        .data(words, function (d) { return d.text; });
+
+        //Entering words
+        cloud.enter()
+        .append("text")
+        .style("font-family", "Impact")
+        .style("fill", function (d, i) { return fill(i); })
+        .style("font-size", function (d) { return d.size + "px"; })
+        .attr("text-anchor", "middle")
+        .attr("transform", function (d) {
+            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function (d) { return d.text; })
+        ;
+
+        //Entering and exiting words
+        cloud
+        .transition()
+        .duration(1000)
+        .style("font-size", function (d) { return d.size + "px"; })
+        .attr("transform", function (d) {
+            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .style("fill-opacity", 1);
+
+        //Exiting words
+        cloud.exit()
+        .transition()
+        .duration(1000)
+        .style('fill-opacity', 1e-6)
+        .attr('font-size', 1)
+        .remove();
     }
 
+
+    //Use the module pattern to encapsulate the visualisation code. We'll
+    // expose only the parts that need to be public.
+    return {
+
+        //Recompute the word cloud for a new set of words. This method will
+        // asycnhronously call draw when the layout has been computed.
+        //The outside world will need to call this function, so make it part
+        // of the wordCloud return value.
+        update: function (words) {
+            console.log("here are the words")
+            console.log(words);
+            d3.layout.cloud().size([900, 500])
+            .words(words)
+            .padding(0)
+            .rotate(0)
+            .font("Impact")
+            .fontSize(function (d) { return d.size; })
+            .on("end", draw)
+            .start();
+        }
+    };
 }
