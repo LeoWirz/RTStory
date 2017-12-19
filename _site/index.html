@@ -31,23 +31,34 @@
 
 
   <!-- Custom Javascript-->
-  <!-- Custom Mohammad-->
 
+  <!-- Custom Mohammad-->
+  <!--Dependencies: Leaflet, Heatmap Overlay, jQuery, Select2, noUiSlider -->
   <script src="https://d3js.org/d3.v4.min.js"></script>
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
   crossorigin=""/>
-  <script src="/RTStory/js/heatmap_data.js "></script>
+
   <script src="/RTStory/js/heatmap.min.js "></script>
+
   <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
   crossorigin=""></script>
+
   <script src="/RTStory/js/heatmap_overlay.js "></script>
   <script src="/RTStory/js/code2genre.js "></script>
   <script src="/RTStory/js/genre2code.js "></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/css/select2.css" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/js/select2.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+
+  <link href="/RTStory/css/nouislider.css " rel="stylesheet"/>
+  <script src="/RTStory/js/nouislider.js "></script>
 
   <!-- Custom Leo-->
   <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
@@ -93,214 +104,15 @@
 
   
 <!-- Chrome, Firefox OS and Opera -->
-<meta name="theme-color" content="#999999">
+<meta name="theme-color" content="#000000">
 <!-- Windows Phone -->
-<meta name="msapplication-navbutton-color" content="#999999">
+<meta name="msapplication-navbutton-color" content="#000000">
 <!-- iOS Safari -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="white">
 
 
   
-
-
-
-
-
-  <!--momo parts start-->
-
-<style>
-
-  #map-container {
-    margin: auto;
-    height: 600px;
-    width: 75%;
-}
-
-#vis {
-    margin: auto;
-    width: 50%;
-    position: relative;
-}
-
-#play-button {
-    position: absolute;
-    /*top: 140px;*/
-    top: 75px;
-    left: -50px;
-    background: #f08080;
-    /*padding-right: 26px;*/
-    /*border-radius: 3px;*/
-    border: none;
-    color: white;
-    margin: 0;
-    /*padding: 0 12px;*/
-    width: 60px;
-    cursor: pointer;
-    height: 30px;
-}
-
-#play-button:hover {
-    background-color: #696969;
-}
-
-.ticks {
-    font-size: 10px;
-}
-
-.track,
-.track-inset,
-.track-overlay {
-    stroke-linecap: round;
-}
-
-.track {
-    stroke: #000;
-    stroke-opacity: 0.3;
-    stroke-width: 10px;
-}
-
-.track-inset {
-    stroke: #dcdcdc;
-    stroke-width: 8px;
-}
-
-.track-overlay {
-    pointer-events: stroke;
-    stroke-width: 50px;
-    stroke: transparent;
-    cursor: crosshair;
-}
-
-.handle {
-    fill: #fff;
-    stroke: #000;
-    stroke-opacity: 0.5;
-    stroke-width: 1.25px;
-}
-
-/* Drop-down list*/
-* {
-    box-sizing: border-box;
-}
-
-#fuzzSearch {
-    width: 50%;
-}
-
-#fuzzNameContainer {
-    height: 40px;
-    padding: 4px 10px;
-    border: 1px solid #999;
-    box-shadow: inset 0 0 2px 0px #333;
-    width: 100%;
-    cursor: pointer;
-    line-height: 1.9em;
-}
-
-.fuzzName {
-    display: inline-block;
-    width: 96%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.fuzzArrow {
-    width: 0;
-    border-style: solid;
-    border-color: #333 transparent transparent transparent;
-    border-width: 7px;
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    top: -3px;
-    -webkit-transition: all 0.1s ease-in;
-    transition: all 0.1s ease-in;
-}
-
-.fuzzArrow:hover {
-    border-top-color: #888;
-}
-
-.fuzzArrow.fuzzArrowUp {
-    border-color: transparent transparent #333 transparent;
-    top: -11px;
-}
-
-#fuzzDropdownContainer {
-    display: none;
-    width: 100%;
-    margin: 0 0 5px 0;
-    border: 1px solid #999;
-    padding: 12px 4px 4px;
-    position: relative;
-}
-
-.fuzzMagicBox {
-    width: 99%;
-    height: 26px;
-    margin: 0 auto;
-}
-
-.fuzzSearchIcon {
-    width: 20px;
-    height: 14px;
-    position: relative;
-    display: inline-block;
-    background: transparent;
-    top: -20px;
-    left: 95%;
-}
-
-.fuzzSearchIcon:before,
-.fuzzSearchIcon:after {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 5px;
-}
-
-.fuzzSearchIcon:before {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid #aaa;
-}
-
-.fuzzSearchIcon:after {
-    height: 7px;
-    border-right: 1px solid #aaa;
-    top: 9px;
-    -webkit-transform: rotate(-32deg);
-    -ms-transform: rotate(-32deg);
-}
-
-#fuzzResults {
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-}
-
-#fuzzResults li {
-    list-style: none;
-    margin-bottom: 10px;
-    padding: 10px;
-    transition: all 0.1s ease-out;
-}
-
-#fuzzResults li:hover,
-#fuzzResults li.selected {
-    color: #fff;
-    background: #1251a4;
-}
-
-.highlight {
-    color: red;
-}
-</style>
-
-
 
 
 
@@ -504,7 +316,7 @@
     </div>
     <div id="bottom">
         <div id="cloud_container" style="border:0px solid grey;margin: 25px;padding: 10px"></div>
-        <div id="slider">
+        <div id="cloud_slider">
             <input type="range" list="tickmarks" min="1900" max="2017" value="1980" id="year" style="width: 90%; float: left;" />
             <span id="range_value" style="float: right;">1980</span>
             <datalist id="tickmarks">
@@ -625,12 +437,12 @@ Paris attacks in 2015</p>
 </script>
 
 <div id="graph_container">
-    <iframe id="feminisme" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed?link=false"></iframe>
+    <!--<iframe id="feminisme" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed?link=false"></iframe>
     <iframe id="vote" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/2.embed?link=false"></iframe>
     <iframe id="homosexualite" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/6.embed?link=false"></iframe>
     <iframe id="terrorisme" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/17.embed?link=false"></iframe>
     <iframe id="famille" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/9.embed?link=false"></iframe>
-    <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed?link=false"></iframe>
+    <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed?link=false"></iframe>-->
 </div>
 
     </div>
@@ -711,7 +523,7 @@ people (usually experts) that have been interviewed, on very various topics, by 
 </script>
 
 <div id="gender_graph_container">
-    <iframe id="1" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~Jvj/18.embed?link=false"></iframe>
+    <!--<iframe id="1" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~Jvj/18.embed?link=false"></iframe>
     <iframe id="2" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~Jvj/16.embed?link=false"></iframe>
     <iframe id="4" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~Jvj/12.embed?link=false"></iframe>
     <iframe id="5" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~Jvj/10.embed?link=false"></iframe>
@@ -719,7 +531,7 @@ people (usually experts) that have been interviewed, on very various topics, by 
     <iframe id="7" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~Jvj/6.embed?link=false"></iframe>
     <iframe id="8" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~Jvj/4.embed?link=false"></iframe>
     <iframe id="9" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~Jvj/2.embed?link=false"></iframe>
-    <iframe id="10" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~Jvj/0.embed?link=false"></iframe>
+    <iframe id="10" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~Jvj/0.embed?link=false"></iframe>-->
 </div>
 
     </div>
@@ -793,485 +605,134 @@ people (usually experts) that have been interviewed, on very various topics, by 
 
 <p>Geographica theme of programs</p>
 
-<body>
-    <div id="control-pane">
-        <h2> Genres </h2>
-        <select id="genresList" title="genres" multiple="multiple">
-        </select>
+<style>
 
+#map-container {
+    margin: auto;
+    height: 600px;
+    width: 100%;
+}
+
+#vis {
+    margin: auto;
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+
+#play-button {
+    /*position: absolute;*/
+    /*top: 140px;*/
+    top: 75px;
+    left: -50px;
+    background: #f08080;
+    /*padding-right: 26px;*/
+    /*border-radius: 3px;*/
+    border: none;
+    color: white;
+    margin: 0;
+    /*padding: 0 12px;*/
+    width: 60px;
+    cursor: pointer;
+    height: 30px;
+}
+
+#play-button:hover {
+    background-color: #696969;
+}
+
+.ticks {
+    font-size: 10px;
+}
+
+.track,
+.track-inset,
+.track-overlay {
+    stroke-linecap: round;
+}
+
+.track {
+    stroke: #000;
+    stroke-opacity: 0.3;
+    stroke-width: 10px;
+}
+
+.track-inset {
+    stroke: #dcdcdc;
+    stroke-width: 8px;
+}
+
+.track-overlay {
+    pointer-events: stroke;
+    stroke-width: 50px;
+    stroke: transparent;
+    cursor: crosshair;
+}
+
+.handle {
+    fill: #fff;
+    stroke: #000;
+    stroke-opacity: 0.5;
+    stroke-width: 1.25px;
+}
+
+.class-play{
+    float: left;
+    position:absolute;
+}
+.class-speed-handle{
+    float: left;
+    top:0px;
+    left:1px;
+}
+.presents{
+    float: left;
+    top:100px;
+    left:100px;
+}
+
+#slider .noUi-connect {
+    background: #f08080;
+}
+
+#slider[disabled] .noUi-connect {
+    background: #B8B8B8;
+}
+[disabled].noUi-target,
+[disabled].noUi-handle,
+[disabled] .noUi-handle {
+    cursor: not-allowed;
+}
+
+</style>
+
+<div id="control-pane">
+    <p>Genres</p>
+    <select id="genreList" title="genres" multiple="multiple">
+        <option value="0" selected="">All</option>
+    </select>
+</div>
+
+<!--<h2>Playback Speed </h2>-->
+<div>
+    <p class="class-speed-handle">Playback Speed</p>
+
+    <div id="slider" class="class-speed-handle">
     </div>
 
-    <div id="map-container" style="width: 900px;"></div>
-
-    <div id="vis">
-        <button id="play-button">Play</button>
+    <div class="presents">
+Presents
+        <a href="javascript:setPresent(presentWorld)">World</a>
+        <a href="javascript:setPresent(presentSwitzerland)">Switzerland</a>
+        <a href="javascript:setPresent(presentEurope)">Europe</a>
     </div>
+</div>
 
+<div id="map-container"></div>
 
-    <script>
-
-        var formatDateIntoYear = d3.timeFormat("%b %Y");
-        var formatDate = d3.timeFormat("%b %Y");
-    //    var parseDate = d3.timeParse("%m/%d/%y");
-    var parseDate = d3.timeParse("%d/%m/%Y");
-
-    var startDate = new Date("1930-01-01"),
-    endDate = new Date("2017-12-01");
-
-
-    var margin = {top: 50, right: 50, bottom: 0, left: 50},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-    var svg = d3.select("#vis")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom);
-
-    ////////// map ////////////
-
-    var radius = 0.5,
-    minOpacity = 0,
-    maxOpacity = 0.5,
-    scaleRadius = true,
-    useLocalExtrema = true,
-    lat = 46.79,
-    lng = 8.20,
-    zoom = 8;
-    //            data = {
-    //                max: 8,
-    //                data: [{x: 24.6408, y: 46.7728, value: 3}, {x: 50.75, y: -1.55, data: 1}]
-    //            };
-
-
-    var cfg = {
-        // radius should be small ONLY if scaleRadius is true (or small radius is intended)
-        // if scaleRadius is false it will be the constant radius used in pixels
-        "radius": radius,
-        // "maxOpacity": .5,
-        "minOpacity": minOpacity,
-        "maxOpacity": maxOpacity,
-        // scales the radius based on map zoom
-        "scaleRadius": scaleRadius,
-        // if set to false the heatmap uses the global maximum for colorization
-        // if activated: uses the data maximum within the current map boundaries
-        //   (there will always be a red spot with useLocalExtremas true)
-        "useLocalExtrema": useLocalExtrema,
-        // which field name in your data represents the latitude - default "lat"
-        latField: 'x',
-        // which field name in your data represents the longitude - default "lng"
-        lngField: 'y',
-        // which field name in your data represents the data value - default "value"
-        valueField: 'valueField'
-    };
-
-    var heatmapLayer = new HeatmapOverlay(cfg);
-
-    var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
-    var url = tonerUrl.replace(/({[A-Z]})/g, function (s) {
-        return s.toLowerCase();
-    });
-
-    var baseLayer = L.tileLayer(
-        url, {
-            subdomains: ['', 'a.', 'b.', 'c.', 'd.'],
-            minZoom: 0,
-            maxZoom: 20,
-            type: 'png',
-            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
-            'under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. ' +
-            'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under ' +
-            '<a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
-        }
-        );
-
-    var map = new L.Map("map-container", {
-        center: new L.LatLng(lat, lng),
-        zoom: zoom,
-        layers: [baseLayer, heatmapLayer]
-    });
-
-    function leafletMap() {
-
-        function my(selection) {
-            // generate chart here, using `width` and `height`
-            console.log("my called!")
-
-            selection.each(function (d, i) {
-                // generate chart here; `d` is the data and `this` is the element
-                heatmapLayer.setData(d)
-                console.log("set data:" + d) // TODO inja aslan nemire dadach!
-            });
-
-
-        }
-
-        // Getter-Setter Methods for eanbaling syntax chaining
-
-        my.width = function (value) {
-            if (!arguments.length) return width;
-            width = value;
-            return my;
-        };
-
-        my.height = function (value) {
-            if (!arguments.length) return height;
-            height = value;
-            return my;
-        };
-
-        my.radius = function (value) {
-            if (!arguments.length) return radius;
-            radius = value;
-            return my;
-        };
-
-        my.minOpacity = function (value) {
-            if (!arguments.length) return minOpacity;
-            minOpacity = value;
-            return my;
-        };
-
-        my.maxOpacity = function (value) {
-            if (!arguments.length) return maxOpacity;
-            maxOpacity = value;
-            return my;
-        };
-
-        my.scaleRadius = function (value) {
-            if (!arguments.length) return scaleRadius;
-            scaleRadius = value;
-            return my;
-        };
-
-        my.useLocalExtrema = function (value) {
-            if (!arguments.length) return useLocalExtrema;
-            useLocalExtrema = value;
-            return my;
-        };
-
-        my.lat = function (value) {
-            if (!arguments.length) return lat;
-            lat = value;
-            return my;
-        };
-
-        my.lng = function (value) {
-            if (!arguments.length) return lng;
-            lng = value;
-            return my;
-        };
-
-        my.zoom = function (value) {
-            if (!arguments.length) return zoom;
-            zoom = value;
-            return my;
-        };
-
-//        my.data = function (value) {
-//            if (!arguments.length) return data;
-//            data = value;
-//            return my;
-//        };
-
-return my;
-}
-
-    ////////// slider //////////
-
-    var moving = false;
-    var currentValue = 0;
-    var targetValue = width;
-
-    var playButton = d3.select("#play-button");
-
-    var x = d3.scaleTime()
-    .domain([startDate, endDate])
-    .range([0, targetValue])
-    .clamp(true);
-
-    var slider = svg.append("g")
-    .attr("class", "slider")
-    .attr("transform", "translate(" + margin.left + "," + height / 5 + ")");
-
-    slider.append("line")
-    .attr("class", "track")
-    .attr("x1", x.range()[0])
-    .attr("x2", x.range()[1])
-    .select(function () {
-        return this.parentNode.appendChild(this.cloneNode(true));
-    })
-    .attr("class", "track-inset")
-    .select(function () {
-        return this.parentNode.appendChild(this.cloneNode(true));
-    })
-    .attr("class", "track-overlay")
-    .call(d3.drag()
-        .on("start.interrupt", function () {
-            slider.interrupt();
-        })
-        .on("start drag", function () {
-            currentValue = d3.event.x;
-            update(x.invert(currentValue));
-        })
-        );
-
-    slider.insert("g", ".track-overlay")
-    .attr("class", "ticks")
-    .attr("transform", "translate(0," + 18 + ")")
-    .selectAll("text")
-    .data(x.ticks(10))
-    .enter()
-    .append("text")
-    .attr("x", x)
-    .attr("y", 10)
-    .attr("text-anchor", "middle")
-    .text(function (d) {
-        return formatDateIntoYear(d);
-    });
-
-    var handle = slider.insert("circle", ".track-overlay")
-    .attr("class", "handle")
-    .attr("r", 9);
-
-    var label = slider.append("text")
-    .attr("class", "label")
-    .attr("text-anchor", "middle")
-    .text(formatDate(startDate))
-    .attr("transform", "translate(0," + (-25) + ")")
-
-
-    ////////// plot //////////
-
-    var dataset;
-    var filtered_data;
-
-    var plot = svg.append("g")
-    .attr("class", "plot")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    //    function loadData(start, len) {
-    //        var points = heatmap_data.slice(start, start + len);
-    function loadData(points) {
-        var len = points.length;
-        var newpoints = [];
-        var max = 0;
-        // var width = 840;
-        // var height = 400;
-        while (len--) {
-            var val = points[len];
-            max = Math.max(max, val);
-            var point = {x: val.x, y: val.y, value: val.value};
-            newpoints.push(point);
-        }
-        var data = {max: max, data: newpoints};
-        myloadedData = data;
-        return data;
-    }
-
-
-    function selectedOption() {
-        log.console("Selected Option!")
-    }
-
-    function setOptions() {
-
-
-    }
-
-    var available_genres;
-
-    function calcAvailableOptions() {
-        let all_genres_options = [];
-        for (r = 0; r < filtered_data.length; r++) {
-            for (i = 0; i < filtered_data[r].genre.length; i++) {
-                all_genres_options.push(filtered_data[r].genre[i]);
-            }
-        }
-        available_genres = Array.from(new Set(all_genres_options))
-    }
-
-
-    d3.csv("heatmap_date_freq_coord_genre.csv", prepare, function (data) {
-        dataset = data;
-        filtered_data = data;
-        calcAvailableOptions();
-
-        // Adding (Filtering) Options
-
-        d3.select('body')
-        //            .select('#control-pane')
-        .select('#genresList')
-            //            .append('div')
-            //            .append('select')
-            //              .on('change',change)
-            //              .on('change', selectedOption)
-            .selectAll('option')
-            //              .on('change', selectedOption)
-            .append("option")
-            .data(available_genres)
-            .enter()
-            .append('option')
-            .attr('value', function (d, i) {
-                return i
-            })
-            .text(function (d) {
-                return d
-            });
-
-            $(document).ready(function() {
-                $('#genresList').select2();
-
-                $('#genresList').on('select2:select', function (e) {
-                    var data = e.params.data;
-                    console.log(data);
-                    console.log("Current Selection:");
-                    console.log($('#genresList').select2('data'));
-                });
-            });
-
-//        d3.select('body')
-//            .select('#fuzzSearch')
-//            //            .select("#fuzzName")
-//            .on('change', selectedOption);
-
-
-//        $('#fuzzOptionsList').fuzzyDropdown({
-//            mainContainer: '#fuzzSearch',
-//            arrowUpClass: 'fuzzArrowUp',
-//            selectedClass: 'selected',
-//            enableBrowserDefaultScroll: true
-//        });
-
-
-drawPlot(dataset);
-
-d3.select("#map-container")
-.datum(data)
-.call(leafletMap);
-
-
-playButton
-.on("click", function () {
-    var button = d3.select(this);
-    if (button.text() == "Pause") {
-        moving = false;
-        clearInterval(timer);
-                    // timer = 0;
-                    button.text("Play");
-                } else {
-                    moving = true;
-                    timer = setInterval(step, 100);
-                    button.text("Pause");
-                }
-                console.log("Slider moving: " + moving);
-            })
-});
-
-    function buildMap(obj) {
-        let map = new Map();
-        Object.keys(obj).forEach(key => {
-            map.set(parseInt(key), obj[key]);
-        });
-        return map;
-    }
-
-    function prepare(d) {
-        d.id = parseInt(d.id);
-        d.date = parseDate(d.date);
-        d.value = parseInt(d.value);
-        d.x = parseFloat(d.x);
-        d.y = parseFloat(d.y);
-        d.genre_code = JSON.parse(d.genre_code);
-        d.genre = [];
-        for (i = 0; i < d.genre_code.length; i++) {
-            d.genre.push(code2genre[d.genre_code[i]]);
-        }
-        return d;
-    }
-
-    function step() {
-        update(x.invert(currentValue));
-        currentValue = currentValue + (targetValue / 151);
-        if (currentValue > targetValue) {
-            moving = false;
-            currentValue = 0;
-            clearInterval(timer);
-            // timer = 0;
-            playButton.text("Play");
-            console.log("Slider moving: " + moving);
-        }
-    }
-
-    var myMap = leafletMap();
-    //        .x(function(d) { return formatDate.parse(d.date); })
-    //        .y(function(d) { return +d.price; });
-
-    //    var formatDate = d3.time.format("%b %Y");
-
-    var count = 0
-
-    function drawPlot(data) {
-        console.log(data.length)
-        console.log("draw is called!")
-        var locations = plot.select("#map-container")
-        .datum(data)
-        .call(myMap);
-
-//        heatmapLayer.setData(loadData(count, 300));
-heatmapLayer.setData(loadData(data));
-//        count+=300;
-
-//        console.log(locations)
-
-//        // if filtered dataset has more circles than already existing, transition new ones in
-//        locations.enter().call(leafletMap);
-//            .append("circle")
-//            .attr("class", "location")
-//            .attr("cx", function (d) {
-//                return x(d.date);
-//            })
-//            .attr("cy", height / 2)
-//            .style("fill", function (d) {
-//                return d3.hsl(d.date / 1000000000, 0.8, 0.8)
-//            })
-//            .style("stroke", function (d) {
-//                return d3.hsl(d.date / 1000000000, 0.7, 0.7)
-//            })
-//            .style("opacity", 0.5)
-//            .attr("r", 8)
-//            .transition()
-//            .duration(400)
-//            .attr("r", 25)
-//            .transition()
-//            .attr("r", 8);
-
-        // if filtered dataset has less circles than already existing, remove excess
-//        locations.exit()
-//            .remove();
-}
-
-function update(h) {
-    console.log(h);
-//        console.log(typeof h);
-console.log(d3.timeDay.offset(h, 1));
-        // update position and text of label according to slider scale
-        handle.attr("cx", x(h));
-        label
-        .attr("x", x(h))
-        .text(formatDate(h));
-
-        // filter data set and redraw plot
-        var newData = dataset.filter(function (d) {
-            return (d.date > h) && (d.date <= d3.timeDay.offset(h, 5));
-        });
-        drawPlot(newData);
-//        drawPlot(dataset);
-//        console.log(dataset.length)
-}
-
-</script>
-</body>
+<div id="vis">
+    <button id="play-button" class="class-play">Play</button>
+</div>
 
     </div>
   </div>
@@ -1410,6 +871,9 @@ console.log(d3.timeDay.offset(h, 1));
 
     
 <!-- Javascript Start -->
+
+<!-- Start the heatmap -->
+<script src="/RTStory/js/heatmap_main.js "></script>
 
 <!-- Start the wordcloud -->
 <script src="/RTStory/js/wordcloud.js "></script>

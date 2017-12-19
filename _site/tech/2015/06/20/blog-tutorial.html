@@ -29,23 +29,34 @@
 
 
   <!-- Custom Javascript-->
-  <!-- Custom Mohammad-->
 
+  <!-- Custom Mohammad-->
+  <!--Dependencies: Leaflet, Heatmap Overlay, jQuery, Select2, noUiSlider -->
   <script src="https://d3js.org/d3.v4.min.js"></script>
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
   crossorigin=""/>
-  <script src="/RTStory/js/heatmap_data.js "></script>
+
   <script src="/RTStory/js/heatmap.min.js "></script>
+
   <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
   crossorigin=""></script>
+
   <script src="/RTStory/js/heatmap_overlay.js "></script>
   <script src="/RTStory/js/code2genre.js "></script>
   <script src="/RTStory/js/genre2code.js "></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/css/select2.css" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/js/select2.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+
+  <link href="/RTStory/css/nouislider.css " rel="stylesheet"/>
+  <script src="/RTStory/js/nouislider.js "></script>
 
   <!-- Custom Leo-->
   <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
@@ -91,9 +102,9 @@
 
   
 <!-- Chrome, Firefox OS and Opera -->
-<meta name="theme-color" content="#999999">
+<meta name="theme-color" content="#000000">
 <!-- Windows Phone -->
-<meta name="msapplication-navbutton-color" content="#999999">
+<meta name="msapplication-navbutton-color" content="#000000">
 <!-- iOS Safari -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="white">
@@ -105,205 +116,6 @@
   <!-- Syntax highlight in post pages -->
 
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai_sublime.min.css">
-
-
-
-
-
-
-  <!--momo parts start-->
-
-<style>
-
-  #map-container {
-    margin: auto;
-    height: 600px;
-    width: 75%;
-}
-
-#vis {
-    margin: auto;
-    width: 50%;
-    position: relative;
-}
-
-#play-button {
-    position: absolute;
-    /*top: 140px;*/
-    top: 75px;
-    left: -50px;
-    background: #f08080;
-    /*padding-right: 26px;*/
-    /*border-radius: 3px;*/
-    border: none;
-    color: white;
-    margin: 0;
-    /*padding: 0 12px;*/
-    width: 60px;
-    cursor: pointer;
-    height: 30px;
-}
-
-#play-button:hover {
-    background-color: #696969;
-}
-
-.ticks {
-    font-size: 10px;
-}
-
-.track,
-.track-inset,
-.track-overlay {
-    stroke-linecap: round;
-}
-
-.track {
-    stroke: #000;
-    stroke-opacity: 0.3;
-    stroke-width: 10px;
-}
-
-.track-inset {
-    stroke: #dcdcdc;
-    stroke-width: 8px;
-}
-
-.track-overlay {
-    pointer-events: stroke;
-    stroke-width: 50px;
-    stroke: transparent;
-    cursor: crosshair;
-}
-
-.handle {
-    fill: #fff;
-    stroke: #000;
-    stroke-opacity: 0.5;
-    stroke-width: 1.25px;
-}
-
-/* Drop-down list*/
-* {
-    box-sizing: border-box;
-}
-
-#fuzzSearch {
-    width: 50%;
-}
-
-#fuzzNameContainer {
-    height: 40px;
-    padding: 4px 10px;
-    border: 1px solid #999;
-    box-shadow: inset 0 0 2px 0px #333;
-    width: 100%;
-    cursor: pointer;
-    line-height: 1.9em;
-}
-
-.fuzzName {
-    display: inline-block;
-    width: 96%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.fuzzArrow {
-    width: 0;
-    border-style: solid;
-    border-color: #333 transparent transparent transparent;
-    border-width: 7px;
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    top: -3px;
-    -webkit-transition: all 0.1s ease-in;
-    transition: all 0.1s ease-in;
-}
-
-.fuzzArrow:hover {
-    border-top-color: #888;
-}
-
-.fuzzArrow.fuzzArrowUp {
-    border-color: transparent transparent #333 transparent;
-    top: -11px;
-}
-
-#fuzzDropdownContainer {
-    display: none;
-    width: 100%;
-    margin: 0 0 5px 0;
-    border: 1px solid #999;
-    padding: 12px 4px 4px;
-    position: relative;
-}
-
-.fuzzMagicBox {
-    width: 99%;
-    height: 26px;
-    margin: 0 auto;
-}
-
-.fuzzSearchIcon {
-    width: 20px;
-    height: 14px;
-    position: relative;
-    display: inline-block;
-    background: transparent;
-    top: -20px;
-    left: 95%;
-}
-
-.fuzzSearchIcon:before,
-.fuzzSearchIcon:after {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 5px;
-}
-
-.fuzzSearchIcon:before {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid #aaa;
-}
-
-.fuzzSearchIcon:after {
-    height: 7px;
-    border-right: 1px solid #aaa;
-    top: 9px;
-    -webkit-transform: rotate(-32deg);
-    -ms-transform: rotate(-32deg);
-}
-
-#fuzzResults {
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-}
-
-#fuzzResults li {
-    list-style: none;
-    margin-bottom: 10px;
-    padding: 10px;
-    transition: all 0.1s ease-out;
-}
-
-#fuzzResults li:hover,
-#fuzzResults li.selected {
-    color: #fff;
-    background: #1251a4;
-}
-
-.highlight {
-    color: red;
-}
-</style>
-
 
 
 
@@ -555,6 +367,9 @@ disqus-shortname: "Your Disqus username"
 
     
 <!-- Javascript Start -->
+
+<!-- Start the heatmap -->
+<script src="/RTStory/js/heatmap_main.js "></script>
 
 <!-- Start the wordcloud -->
 <script src="/RTStory/js/wordcloud.js "></script>
