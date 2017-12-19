@@ -4,6 +4,8 @@ var year;
 var maxSize;
 var minSize;
 var range_max = 100;
+var w;
+var s;
 
 // load json data
 var json_data;
@@ -151,8 +153,14 @@ function wordCloud(selector) {
         fontScale = d3.scaleLinear()
         .domain([minSize, maxSize]) 
             .range([minSize, range_max]); // the argument here
-            showNewWords(myWordCloud, theme, year);
-        }
+            myWordCloud.update( w.map(function (d, i) {
+                return {
+                    text: d,
+                    size: s[i]
+                };
+            }))
+                        //showNewWords(myWordCloud, theme, year);
+    }
 
 
 
