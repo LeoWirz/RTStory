@@ -1,6 +1,6 @@
 
-var theme;
-var year;
+var theme = "Genra";
+var year = 1800;
 var maxSize;
 var minSize;
 var range_max = 100;
@@ -23,7 +23,8 @@ d3.json("themes_by_year.json", function (data) {
     }
     theme = select.options[select.selectedIndex].value;
 
-    showNewWords(myWordCloud, theme, 2000);
+    set_cloud(2000, theme);
+    //showNewWords(myWordCloud, theme, 2000);
 });
 
 // populate the options for the slider (1900 to 2017)
@@ -72,6 +73,7 @@ d3.select('#themes_drop')
 .on("change", function () {
     var sect = document.getElementById("themes_drop");
     theme = sect.options[sect.selectedIndex].value;
+    console.log("dropchanged");
     showNewWords(myWordCloud, theme, year);
 });
 
@@ -81,6 +83,8 @@ function showNewWords(vis, theme, year) {
 }
 
 function getWord(theme, year) {
+    console.log(year);
+    console.log(theme);
     try {
         w = Object.keys(json_data[theme][year]);
         s = Object.values(json_data[theme][year]);
