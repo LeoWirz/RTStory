@@ -704,24 +704,34 @@ people (usually experts) that have been interviewed, on very various topics, by 
     cursor: not-allowed;
 }
 
+
+.select2-search {
+    background-color: black;
+}
+.select2-results { 
+    background-color: black; 
+}
+
+.select2-selection__rendered {
+    background-color: black;
+}
+
 </style>
 
-<div id="control-pane">
-    <p>Genres</p>
-    <select id="genreList" title="genres" multiple="multiple">
+<div id="control-pane" style="margin-bottom: 20px;">
+    Genres
+    <select id="genreList" title="genres" multiple="multiple" style="background-color: black;">
         <option value="0" selected="">All</option>
     </select>
 </div>
 
-<!--<h2>Playback Speed </h2>-->
-<div>
-    <p class="class-speed-handle">Playback Speed</p>
-
-    <div id="slider" class="class-speed-handle">
+<div style="margin-top: 50px;margin-bottom: 25px;">
+    <div style="float:left;width: 50%">
+        Playback Speed
+        <div id="slider" class="class-speed-handle"></div>
     </div>
-
-    <div class="presents">
-Presents
+    <div class="presents" style="float: right;width: 50%">
+        Presents
         <a href="javascript:setPresent(presentWorld)">World</a>
         <a href="javascript:setPresent(presentSwitzerland)">Switzerland</a>
         <a href="javascript:setPresent(presentEurope)">Europe</a>
