@@ -3,9 +3,15 @@ layout: null
 section-type: maps
 title: Map
 ---
-## Map
+## Coverage: Spatial and Temporal Distributions
+In this part we set out to answer this question: **How has the RTS covered the news around the globe ? How equitable was the coverage? Is there any noticeable bias?**
 
-Geographica theme of programs
+The interactive heat map below shows the 90 years of RTS coverage around the globe. You can pan, zoom and discover the coverage by selecting the genres of programs to include in the heat map. By default all news is included.
+
+Go ahead and check the coverage [around the world](javascript:setPresent(presentWorld)), in [Europe](javascript:setPresent(presentEurope)) or  just in [Switzerland](javascript:setPresent(presentSwitzerland)).
+
+Moreover, you can see how the coverage changed around the years. While viewing the [World](javascript:setPresent(presentWorld)), change the timeline to the year 1941 and see world (or [Europe](javascript:setPresent(presentWorld))) erupt in the fires of the [World War II](#).
+
 
 <style>
 
@@ -45,6 +51,8 @@ Geographica theme of programs
 
 .ticks {
     font-size: 10px;
+    fill:white;
+    /* stroke: white; */
 }
 
 .track,
@@ -72,8 +80,8 @@ Geographica theme of programs
 }
 
 .handle {
-    fill: #fff;
-    stroke: #000;
+    fill: #FFF;
+    stroke: #FFF;
     stroke-opacity: 0.5;
     stroke-width: 1.25px;
 }
@@ -83,14 +91,19 @@ Geographica theme of programs
     position:absolute;
 }
 .class-speed-handle{
-    float: left;
+    /* float: left; */
     top:0px;
     left:1px;
 }
 .presents{
-    float: left;
+    /* float: left; */
     top:100px;
     left:100px;
+}
+
+.label{
+  fill:white;
+  /* stroke:white; */
 }
 
 #slider .noUi-connect {
@@ -110,8 +123,8 @@ Geographica theme of programs
 .select2-search {
     background-color: black;
 }
-.select2-results { 
-    background-color: black; 
+.select2-results {
+    background-color: black;
 }
 
 .select2-selection__rendered {
@@ -130,10 +143,14 @@ Geographica theme of programs
 <div style="margin-top: 50px;margin-bottom: 25px;">
     <div style="float:left;width: 50%">
         Playback Speed
+        <br />
+        <br />
+        <br />
+
         <div id="slider" class="class-speed-handle"></div>
     </div>
     <div class="presents" style="float: right;width: 50%">
-        Presents
+        Presents<br />
         <a href="javascript:setPresent(presentWorld)">World</a>
         <a href="javascript:setPresent(presentSwitzerland)">Switzerland</a>
         <a href="javascript:setPresent(presentEurope)">Europe</a>

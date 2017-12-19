@@ -1,5 +1,5 @@
 var formatDateIntoYear = d3.timeFormat("%Y");
-var formatDate = d3.timeFormat("%b %Y");
+var formatDate = d3.timeFormat("%d %b %Y");
 var parseDate = d3.timeParse("%d/%m/%Y");
 
 var startDate = new Date("1930-01-01"),
@@ -15,8 +15,8 @@ var svg = d3.select("#vis")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
-var runningSpeed = 0.5;
-var numofGroupByDays = 30;
+var runningSpeed = 1;
+var numofGroupByDays = 5;
 
 
 // Presents (Settable Visualization Configurations)
@@ -39,12 +39,25 @@ var presentEurope = {
     radius: 2
 }
 
+var presentWW2={
+    center: {lat: 34.016241889667036, lng: 3.6914062500000004},
+    zoom: 2,
+    radius: 5
+
+}
+
 
 function setPresent(_present) {
     map.setZoom(_present.zoom);
     map.panTo(_present.center);
     cfg["radius"] = _present.radius;
     drawPlot(dataset);
+}
+
+function setEventPresent(_presnet){
+    map.setZoom(_present.zoom);
+    map.panTo(_present.center);
+    cfg["radius"] = _present.radius;
 }
 
 ////////// map ////////////
@@ -119,14 +132,14 @@ speedSlider.style.margin = '0 auto 30px';
 
 noUiSlider.create(speedSlider, {
         start: runningSpeed,
-        step: 0.01,
+        step: 0.1,
         connect: "lower",
         orientation: 'horizontal',
         tooltips: true,
         behaviour: "tap-drag",
         range: {
-            'min': 0.01,
-            'max': 2
+            'min': 0.1,
+            'max': 100
         },
         serialization: {
             format: {
@@ -369,7 +382,8 @@ function prepare(d) {
 
 function step() {
     update(x.invert(currentValue));
-    currentValue = currentValue + (targetValue / 151);
+    // currentValue = currentValue + (targetValue / 151);
+    currentValue = currentValue + runningSpeed*(targetValue / 30000);
     if (currentValue > targetValue) {
         moving = false;
         currentValue = 0;

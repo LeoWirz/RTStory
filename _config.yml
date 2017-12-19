@@ -200,9 +200,9 @@ keybase-in-footer: False
 pages_list:
   About: 'about'
   Themes: 'themes'
-  Social Phenomenas: 'social'
-  Gender: 'gender'
   Maps: 'maps'
+  Social Phenomena: 'social'
+  Gender: 'gender'
   #Blog: 'latest-post'
   #Timeline: 'timeline'
   Contact: 'contact'
