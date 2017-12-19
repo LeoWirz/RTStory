@@ -493,11 +493,6 @@
     <div class="col-md-10 col-md-offset-1">
       <h2 id="themes-over-the-years">Themes over the years</h2>
 
-<ol>
-  <li><a href="#">=&gt; LEO</a> What type of programs were produced in each time period? What/Who are the dominant themes/characters for the different historical periods ?</li>
-  <li><a href="#">=&gt; LEO</a> General evolution of the emissions: How long does a show run (how many seasons)? What are the influence factors ? Is it linkable to the audience type ?</li>
-</ol>
-
 <p>To have an ensemble view on the topics of the programs, the number of occurencies of each word by year was added. The wordcloud below offers a nice way to visualize the evolution of different themes over the year. The dropdown on top of the cloud has four options : Genra, Topics, Persons and Locations. The slider at the bottom allows to pick a year between 1900 and 2017. There is way more data for the last decades and very little for the begining of the 20th century.</p>
 
 <div id="container" style="background-color: #343434">
@@ -521,11 +516,8 @@
 <p><br /></p>
 <h3 id="word-war-ii">Word war II</h3>
 <p>As expected, the main topic of the years between 1939 and 1945 is the world war II. What is interesting to observate is the evolution of the surrounding topics. In 1939 we can see the importance of national or war oriented words like “army”, “armed conflict”, “patriotism” or “international relatinships”.
-<a href="#container" onclick="set_cloud(1939,'Topics');">Take me to 1939</a></p>
-
-<p>Even with in this environment the second main topics are art related (history, litteratur, dramatic art, writer).</p>
-
-<p><a href="#container" onclick="set_cloud(1942,'Topics');">1942-43</a> we get “rationnement” and “recette culinaire”</p>
+<a href="#container" onclick="set_cloud(1939,'Topics');">Take me to 1939</a> Even in this context the second main topics are art related (history, litterature, dramatic art, writer).
+<a href="#container" onclick="set_cloud(1942,'Topics');">1942-43</a> we get “rationnement” and “recette culinaire”</p>
 
 <p><a href="#container" onclick="set_cloud(1945,'Topics');">1945-46</a> peace is the second word</p>
 
@@ -585,7 +577,31 @@
 <section id="social" class="container content-section text-center">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h2 id="main-social-phenomenas">Main social phenomenas</h2>
+      <h2 id="major-social-phenomenas">Major social phenomenas</h2>
+<p>This part was done by Sina.
+How did the RTS coverage of important social phenomena like the sexual revolution, women’s voting right,
+and terrorism evolved over time, using the number of occurences and co-occurences.</p>
+
+<p><b>Note: Go over the bar plots to see appearing the co-occurenes for a given year.</b>
+What we mean by co-occurece is : words that have appeared the most with the chosen topic for a given year.<br />
+In some years, there is no dominant co-occurence (lower that the set threshold) so you don’t see any thing.</p>
+
+<p>We have chosen to study some of the major social phenomenas of the 20th century. <br />
+Looking at the various plots below, we can see some trends appearing :<br />
+For women’s voting right, it peaks at 1971 when there was the election in Switzerland. Then it’s much less talked about, with some exceptions,
+the last one being in 2017 and women’s voting right attributed to Saudi women.<br />
+For Homosexuality, we can observe that there was absolutely nothing about the subject until 1960! It picks at 2003.
+Observe that in the first apperences, the dominant co-occurences are films (movies), livre (books) showing that artists were trying to talk
+about the project. Whereas in the last years, although the number of occurence has not changed (even decreased over last five years), but,
+the dominant co-occurences are marriage, children and medicine showing the progress made on the subject.</p>
+
+<p>Finally, for terrorisme, it’s interesting to see that after every pic, there is an important relax in the occurence, on the following year.
+The co-occurence here gives nice insights about major terrorist attacks over the last 50 years. You can see, amongst others:<br />
+Vietnam and US war in 1964<br />
+l’affaire Gordji and Mitterand in 1988<br />
+11 september attack (reflected in 2002)<br />
+Madrid attacks in 2004<br />
+Paris attacks in 2015</p>
 
 <p><select id="favoriteThemes" name="form_select" style="background-color:black">
  <option value="terrorisme">Terrorism</option>
@@ -1479,7 +1495,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, '', 'https://le4ker.github.io/RTStory/');
+    history.pushState({}, '', 'http://localhost:4000/RTStory/');
   }
 }
 </script>

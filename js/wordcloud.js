@@ -1,6 +1,9 @@
 
 var theme;
 var year;
+var maxSize;
+var minSize;
+var range_max = 100;
 
 // load json data
 var json_data;
@@ -72,6 +75,10 @@ function getWord(theme, year) {
         w = [""]
         s = [100]
     }
+
+    maxSize = d3.max(s);
+    minSize = d3.min(s);
+
     return w.map(function (d, i) {
         return {
             text: d,
@@ -135,6 +142,19 @@ function wordCloud(selector) {
         .remove();
     }
 
+    
+    var fontScale = d3.scaleLinear()
+        .domain([minSize, maxSize]) 
+        .range([minSize, maxSize]);
+
+    function drawcloud (range_max) {
+        fontScale = d3.scaleLinear()
+        .domain([minSize, maxSize]) 
+            .range([minSize, range_max]); // the argument here
+            showNewWords(myWordCloud, theme, year);
+        }
+
+
 
     //Use the module pattern to encapsulate the visualisation code. We'll
     // expose only the parts that need to be public.
@@ -152,9 +172,24 @@ function wordCloud(selector) {
             .padding(0)
             .rotate(0)
             .font("Impact")
-            .fontSize(function (d) { return d.size; })
+            //.fontSize(function (d) { return d.size; })
+            .fontSize(function(d) { return fontScale(d.size) }) 
             .spiral("archimedean")
-            .on("end", draw)
+            //.on("end", draw)
+            .on("end", function(output) {
+                if (words.length !== output.length) {  // compare between input ant output
+                    console.log("resizing")
+                    range_max = range_max - 10;
+                    console.log(range_max)
+                    drawcloud ( range_max); // call the function recursively
+                    return undefined;  
+                }
+                else { 
+                    console.log(output);
+                    range_max = 100;
+                    draw(output);
+                }     // when all words are included, start rendering
+            })
             .start();
         }
     };
