@@ -46,12 +46,17 @@ document.getElementById('tickmarks').innerHTML = options;
 var myWordCloud = wordCloud('#cloud_container');
 
 // was the slider used?
-d3.select("#year").on("input", function () {
+d3.select("#year").on("mouseup", function () {
     console.log(this.value)
     year = this.value;
     showNewWords(myWordCloud, theme, year);
     document.getElementById('range_value').innerHTML=year; 
     //d3.select("h2").text(d3.select("#year").node().value);
+});
+
+d3.select("#year").on("input", function () {
+    year = this.value;
+    document.getElementById('range_value').innerHTML=year; 
 });
 
 // set the onchange function for the dropdown
