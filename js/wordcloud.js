@@ -6,7 +6,7 @@ function wc(){
     // load json data
     var json_data;
 
-    d3.json("themes_by_year_accent.json", function (data) {
+    d3.json("themes_by_year.json", function (data) {
         json_data = data;
 
         // populate drobdown menu

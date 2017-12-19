@@ -502,6 +502,13 @@
 
 <p>To have an ensemble view on the topics of the programs, the number of occurencies of each word by year was added.</p>
 
+<h3 id="word-war-ii">Word war II</h3>
+<p>As expected, the main topic of the years between 1939 and 1945 is the world war II. What is interesting to observate is the evolution of the surrounding topics. In 1939 (should link the cloud here) we can see the importance of the national words like “army”, “armed conflict” or “patriotism”, but the followging topic are art related (history, litteratur, dramatic art).</p>
+
+<h3 id="rising-concerns-about-terrorism">Rising concerns about terrorism</h3>
+
+<h3 id="why-bells-">Why bells ?</h3>
+
 <div id="container" style="background-color: #343434">
     <div id="top">
         <button onclick="set_cloud(2000, 'genra')"></button>
@@ -598,13 +605,12 @@
 </script>
 
 <div id="graph_container">
-    <!--<iframe id="feminisme" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed?link=false"></iframe>
+    <iframe id="feminisme" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/15.embed?link=false"></iframe>
     <iframe id="vote" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/2.embed?link=false"></iframe>
     <iframe id="homosexualite" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/6.embed?link=false"></iframe>
     <iframe id="terrorisme" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/17.embed?link=false"></iframe>
     <iframe id="famille" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/9.embed?link=false"></iframe>
     <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed?link=false"></iframe>
-    -->
 </div>
 
     </div>
@@ -670,7 +676,6 @@
 </script>
 
 <div id="gender_graph_container">
-    <!--
     <iframe id="1" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/70.embed?link=false"></iframe>
     <iframe id="2" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/68.embed?link=false"></iframe>
     <iframe id="3" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/66.embed?link=false"></iframe>
@@ -681,7 +686,6 @@
     <iframe id="8" width="900" height="800" frameborder="0" scrolling="no" style="display:inline;" src="//plot.ly/~sfa/56.embed?link=false"></iframe>
     <iframe id="9" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/54.embed?link=false"></iframe>
     <iframe id="10" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/52.embed?link=false"></iframe>
--->
 </div>
 
     </div>
@@ -1460,7 +1464,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, '', 'https://le4ker.github.io/RTStory/');
+    history.pushState({}, '', 'http://localhost:4000/RTStory/');
   }
 }
 </script>
