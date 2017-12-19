@@ -1,5 +1,5 @@
 {
-  "genra": {
+  "Genra": {
     "1900": {
       "déclaration": 100,
       "interview": 100,
@@ -71998,7 +71998,7 @@
       "kumbia boruka": 2.7654867257
     }
   },
-  "topics": {
+  "Topics": {
     "1900": {
       "cloche": 100,
       "signal acoustique": 100,

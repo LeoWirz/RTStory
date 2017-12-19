@@ -1,95 +1,84 @@
-function wc(){
 
-    var theme;
-    var year;
+var theme;
+var year;
 
-    // load json data
-    var json_data;
+// load json data
+var json_data;
 
-    d3.json("themes_by_year.json", function (data) {
-        json_data = data;
+d3.json("themes_by_year.json", function (data) {
+    json_data = data;
 
-        // populate drobdown menu
-        var possible_themes = Object.keys(json_data);
-        var select = document.getElementById("themes_drop");
-        for (var i = 0; i < possible_themes.length; i++) {
-            var option = document.createElement('option');
-            option.text = option.value = possible_themes[i];
-            select.add(option, 0);
-        }
-        theme = select.options[select.selectedIndex].value;
-
-        showNewWords(myWordCloud, theme, 2000);
-    });
-
-   // populate the options for the slider (1900 to 2017)
-   var options="";
-
-   for(var i = 1900; i <= 2017; i++)
-   {
-        // adds the label every 10 years
-        if(i%10 == 0){
-            options += "<option value=\""+i+"\" label=\""+i+"\">";
-        }
-        else{
-            options += "<option value=\""+i+"\">";
-        }
+    // populate drobdown menu
+    var possible_themes = Object.keys(json_data);
+    var select = document.getElementById("themes_drop");
+    for (var i = 0; i < possible_themes.length; i++) {
+        var option = document.createElement('option');
+        option.text = option.value = possible_themes[i];
+        select.add(option, 0);
     }
+    theme = select.options[select.selectedIndex].value;
 
-    document.getElementById('tickmarks').innerHTML = options;
+    showNewWords(myWordCloud, theme, 2000);
+});
 
-    //Create a new instance of the word cloud visualisation.
-    var myWordCloud = wordCloud('#cloud_container');
+// populate the options for the slider (1900 to 2017)
+var options="";
 
-    // was the slider used?
-    d3.select("#year").on("input", function () {
-        console.log(this.value)
-        year = this.value;
-        showNewWords(myWordCloud, theme, year);
-        document.getElementById('range_value').innerHTML=year; 
-        //d3.select("h2").text(d3.select("#year").node().value);
-    });
-
-    // set the onchange function for the dropdown
-    d3.select('#themes_drop')
-    .on("change", function () {
-        var sect = document.getElementById("themes_drop");
-        theme = sect.options[sect.selectedIndex].value;
-        showNewWords(myWordCloud, theme, year);
-    });
-
-    // updadate the vis with new words
-    function showNewWords(vis, theme, year) {
-        vis.update(getWord(theme, year));
+for(var i = 1900; i <= 2017; i++)
+{
+    // adds the label every 10 years
+    if(i%10 == 0){
+        options += "<option value=\""+i+"\" label=\""+i+"\">";
     }
-
-    function getWord(theme, year) {
-        try {
-            w = Object.keys(json_data[theme][year]);
-            s = Object.values(json_data[theme][year]);
-        }
-        catch(err){
-            //no word to display
-            w = [""]
-            s = [100]
-        }
-        return w.map(function (d, i) {
-            return {
-                text: d,
-                //size: Math.log(s[i]) / Math.log(1.1)
-                size: s[i]
-            };
-        });
+    else{
+        options += "<option value=\""+i+"\">";
     }
-
-
-
 }
 
-function set_cloud(year, type){
-    document.getElementById("year").value = "2000";
-    document.getElementById("themes_drop").value = "Genra";
+document.getElementById('tickmarks').innerHTML = options;
 
+//Create a new instance of the word cloud visualisation.
+var myWordCloud = wordCloud('#cloud_container');
+
+// was the slider used?
+d3.select("#year").on("input", function () {
+    console.log(this.value)
+    year = this.value;
+    showNewWords(myWordCloud, theme, year);
+    document.getElementById('range_value').innerHTML=year; 
+    //d3.select("h2").text(d3.select("#year").node().value);
+});
+
+// set the onchange function for the dropdown
+d3.select('#themes_drop')
+.on("change", function () {
+    var sect = document.getElementById("themes_drop");
+    theme = sect.options[sect.selectedIndex].value;
+    showNewWords(myWordCloud, theme, year);
+});
+
+// updadate the vis with new words
+function showNewWords(vis, theme, year) {
+    vis.update(getWord(theme, year));
+}
+
+function getWord(theme, year) {
+    try {
+        w = Object.keys(json_data[theme][year]);
+        s = Object.values(json_data[theme][year]);
+    }
+    catch(err){
+        //no word to display
+        w = [""]
+        s = [100]
+    }
+    return w.map(function (d, i) {
+        return {
+            text: d,
+            //size: Math.log(s[i]) / Math.log(1.1)
+            size: s[i]
+        };
+    });
 }
 
 // Encapsulate the word cloud functionality
@@ -103,6 +92,11 @@ function wordCloud(selector) {
     .attr("height", 500)
     .append("g")
     .attr("transform", "translate(450,250)");
+
+    svg.on("click", function() {
+        console.log("rect");
+        showNewWords(myWordCloud, theme, year);
+    });
 
     //Draw the word cloud
     function draw(words) {
@@ -165,3 +159,21 @@ function wordCloud(selector) {
         }
     };
 }
+
+
+
+function set_cloud(year, type){
+    document.getElementById("year").value = year;
+    document.getElementById("range_value").innerHTML = year;
+    document.getElementById("themes_drop").value = type;
+    showNewWords(myWordCloud, type, year);
+}
+
+// animation for when we go to the worcloud
+$(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
+});
