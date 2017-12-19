@@ -162,11 +162,13 @@ function wordCloud(selector) {
 
 
 
-function set_cloud(year, type){
-    document.getElementById("year").value = year;
-    document.getElementById("range_value").innerHTML = year;
+function set_cloud(new_year, type){
+    document.getElementById("year").value = new_year;
+    document.getElementById("range_value").innerHTML = new_year;
+    year = new_year;
+    theme = type;
     document.getElementById("themes_drop").value = type;
-    showNewWords(myWordCloud, type, year);
+    showNewWords(myWordCloud, type, new_year);
 }
 
 // animation for when we go to the worcloud
