@@ -120,7 +120,7 @@ var map = new L.Map("map-container", {
     center: new L.LatLng(lat, lng),
     zoom: zoom,
     layers: [baseLayer, heatmapLayer],
-    // zoomControl: false,
+    zoomControl: false,
 });
 
 
