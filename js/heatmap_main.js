@@ -6,9 +6,9 @@ var startDate = new Date("1930-01-01"),
     endDate = new Date("2017-12-01");
 
 
-var margin = {top: 50, right: 100, bottom: 0, left: 50},
+var margin = {top: -250, right: 100, bottom: 0, left: 50},
     width = 800 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 200 - margin.top - margin.bottom;
 
 var svg = d3.select("#vis")
     .append("svg")
@@ -16,7 +16,7 @@ var svg = d3.select("#vis")
     .attr("height", height + margin.top + margin.bottom);
 
 var runningSpeed = 1;
-var numofGroupByDays = 5;
+var numofGroupByDays = 30;
 
 
 // Presents (Settable Visualization Configurations)
@@ -120,7 +120,7 @@ var map = new L.Map("map-container", {
     center: new L.LatLng(lat, lng),
     zoom: zoom,
     layers: [baseLayer, heatmapLayer],
-    zoomControl: false,
+    // zoomControl: false,
 });
 
 
@@ -348,6 +348,7 @@ d3.csv("heatmap_date_freq_coord_genre.csv", prepare, function (data) {
 
         speedSlider.noUiSlider.on('update', function (values, handle) {
             runningSpeed = values[handle];
+            numofGroupByDays = Math.ceil(runningSpeed*4);
         });
 
     });

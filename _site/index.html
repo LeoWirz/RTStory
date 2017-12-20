@@ -196,7 +196,7 @@
             <h1 class="brand-heading">&nbsp;</h1>
             <h1 class="brand-heading">&nbsp;</h1>
             <h5>&nbsp;</h5>
-            <h3>An EPFL student's project</h3>
+            <h3>An EPFL Applied Data Analysis Project</h3>
           </div>
         </div>
     </div>
@@ -323,7 +323,13 @@ Therefore we set out to answer theses questions:</p>
 <section id="themes" class="container content-section text-center">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h2 id="1-themes-over-the-years">1. Themes over the years</h2>
+      <h2 id="themes-over-the-years">Themes over the years</h2>
+
+<blockquote>
+    <p style="text-align:left"><i> 1. What type of programs were produced in each time period? What/Who are the dominant
+        themes/characters for the different historical periods ?<br />
+    </i></p>
+</blockquote>
 
 <p>To have an ensemble view on the topics of the programs, the number of occurrences of each word by year was added.
 The word cloud below offers a nice way to visualize the evolution of different themes over the year.
@@ -428,7 +434,14 @@ different church’s bells around Switzerland. Other than that there was no furt
 <section id="maps" class="container content-section text-center">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h2 id="2-and-3-how-has-rts-covered-the-world-in-the-past-century">2. and 3. How has RTS covered the world in the past century?</h2>
+      <h2 id="how-has-rts-covered-the-world-in-the-past-century">How has RTS covered the world in the past century?</h2>
+
+<blockquote>
+    <p style="text-align:left"><i> 2. How has the RTS covered the news around the globe ? How equitable was the coverage? Is there any noticeable bias?
+        <br />
+        <br />
+        3. How has RTS coverage evolved across the years?</i></p>
+</blockquote>
 
 <p>The interactive heat map below shows the 90 years of RTS coverage around the globe.
 You can pan and discover the coverage by selecting the genres of programs to include in the heat map.
@@ -441,7 +454,8 @@ Using the presents when the animation is not playing also resets the plot to sho
 <h3 id="world-war-ii">World War II</h3>
 <p>Set the timeline to the year 1941 and watch as the <a href="javascript:setPresent(presentWorld)">world</a> (or <a href="javascript:setPresent(presentEurope)">Europe</a>) erupts in
 the fires of the second world war. We observe the most news coverage, is still local, but occasionally news happens accross the Europe, from Germany to Spain
-and also from Russia to United States — especially in the closing years of the fight.</p>
+and also from Russia to United States — especially in the closing years of the fight. Finally you observe the relatively
+low coverage of the news after the WWII dust settles. This is followed by a spurt in the late 40’s and start of 50’s.</p>
 
 <style>
 
@@ -654,6 +668,17 @@ and also from Russia to United States — especially in the closing years of the
 <div id="vis">
     <button id="play-button" class="class-play">Play</button>
 </div>
+<p><br />
+<br /></p>
+
+<h3 id="non-parity-in-coverage">Non-Parity in Coverage</h3>
+<p>Looking at the RTS coverage around the <a href="javascript:setPresent(presentWorld)">world</a> , it is clear that
+altogether, this news/media outlet has covered most of the world at least once. However,
+the coverage is far from uniform, as better evidenced by coverage in Switzerland
+and Europe. In <a href="javascript:setPresent(presentSwitzerland)">Switzerland</a>, there is (not surprisingly) a much stronger
+coverage for the French Speaking part, while important locations in the German speaking region is also covered.
+In <a href="javascript:setPresent(presentEurope)">Europe</a>, the coverage is more skewed towards West Europe. Especially before
+1991 and the fall of the Berlin Wall.</p>
 
     </div>
   </div>
@@ -710,10 +735,13 @@ and also from Russia to United States — especially in the closing years of the
 <section id="social" class="container content-section text-center">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h2 id="major-social-phenomena">Major social phenomena</h2>
-<p>This part was done by Sina.
-How did the RTS coverage of important social phenomena like the sexual revolution, women’s voting right,
-and terrorism evolved over time, using the number of occurences and co-occurences.</p>
+      <h2 id="major-social-phenomena">Major social phenomena.</h2>
+
+<blockquote>
+    <p style="text-align:left"><i> 4. How did the RTS coverage of important social phenomena like the sexual revolution,
+        women’s voting right, and terrorism evolved over time?<br />
+        </i></p>
+</blockquote>
 
 <p><b>Note: Go over the bar plots to see appearing the co-occurenes for a given year.</b>
 What we mean by co-occurece is : words that have appeared the most with the chosen topic for a given year.<br />
@@ -729,7 +757,8 @@ about the project. Whereas in the last years, although the number of occurence h
 the dominant co-occurences are marriage, children and medicine showing the progress made on the subject.</p>
 
 <p>Finally, for terrorisme, it’s interesting to see that after every pic, there is an important relax in the occurence, on the following year.
-The co-occurence here gives nice insights about major terrorist attacks over the last 50 years. You can see, amongst others:<br />
+The co-occurence here gives nice insights about major terrorist attacks over the last 50 years. You can see, amongst others:
+<br />
 Vietnam and US war in 1964<br />
 l’affaire Gordji and Mitterand in 1988<br />
 11 september attack (reflected in 2002)<br />
@@ -737,12 +766,12 @@ Madrid attacks in 2004<br />
 Paris attacks in 2015</p>
 
 <p><select id="favoriteThemes" name="form_select" style="background-color:black">
- <option value="terrorisme">Terrorism</option>
- <option value="vote">Women's voting right</option>
- <option value="famille">Famille</option>
- <option value="feminisme">Feminism</option>
- <option value="homosexualite">Homosexuality</option>
- <option value="mariage">Mariage</option>
+    <option value="terrorisme">Terrorism</option>
+    <option value="vote">Women's voting right</option>
+    <option value="famille">Famille</option>
+    <option value="feminisme">Feminism</option>
+    <option value="homosexualite">Homosexuality</option>
+    <option value="mariage">Mariage</option>
 </select></p>
 
 <script type="text/javascript">
@@ -799,10 +828,11 @@ Paris attacks in 2015</p>
     <div class="col-md-10 col-md-offset-1">
       <h2 id="gender-distribution">Gender Distribution</h2>
 
-<p>This part was done by Sina.
-How has the distribution of genders for anchors and presenters evolved over the course of the years?<br />
-Was there a gender bias? If yes, how is it changed?</p>
-
+<blockquote>
+    <p style="text-align:left"><i> 5. How did the RTS coverage of important social phenomena like the sexual revolution,
+        women’s voting right, and terrorism evolved over time?<br />
+    </i></p>
+</blockquote>
 <p>There are over 100 different roles in the RTS dataset. Here we have selected to plot what we thought are the most interessting ones.
 In general we can see various patterns.<br />
 For ‘Interviewer’ and ‘Presenter’, we see a very nice progress over the last decades.
@@ -901,23 +931,6 @@ people (usually experts) that have been interviewed, on very various topics, by 
 <a href="leonardo.wirz@epfl.ch">Leonardo Wirz</a>.</p>
 
 
-      
-        
-          
-            <p>
-            <script>
-              function join_at_email(user, domain){
-              return (user && domain)?(user + "@" + domain):"";
-              }
-              document.write('<a href="mailto:'
-              + join_at_email( "leonardo.wirz", "epfl.ch" )
-              + '">'
-              + join_at_email( "leonardo.wirz", "epfl.ch" )
-              + '</a>'
-              );
-              </script>
-            </p>
-        
       
 
     </div>
