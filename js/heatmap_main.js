@@ -119,8 +119,17 @@ var baseLayer = L.tileLayer(
 var map = new L.Map("map-container", {
     center: new L.LatLng(lat, lng),
     zoom: zoom,
-    layers: [baseLayer, heatmapLayer]
+    layers: [baseLayer, heatmapLayer],
+    // zoomControl: false,
 });
+
+
+// Disable Zooming
+// map.touchZoom.disable();
+// map.doubleClickZoom.disable();
+// map.scrollWheelZoom.disable();
+// map.boxZoom.disable();
+// map.keyboard.disable();
 
 ////////// speed slider /////
 
@@ -132,14 +141,14 @@ speedSlider.style.margin = '0 auto 30px';
 
 noUiSlider.create(speedSlider, {
         start: runningSpeed,
-        step: 0.1,
+        step: 0.5,
         connect: "lower",
         orientation: 'horizontal',
         tooltips: true,
         behaviour: "tap-drag",
         range: {
             'min': 0.1,
-            'max': 100
+            'max': 20
         },
         serialization: {
             format: {
@@ -320,6 +329,7 @@ d3.csv("heatmap_date_freq_coord_genre.csv", prepare, function (data) {
         // Speed Control Instantiation
         $('#genreList').select2({
             closeOnSelect: false,
+            // theme: "classic",
         });
 
         // To enbale default 'All' option, on load.
@@ -357,7 +367,7 @@ d3.csv("heatmap_date_freq_coord_genre.csv", prepare, function (data) {
                 speedSlider.removeAttribute('disabled');
             } else {
                 moving = true;
-                timer = setInterval(step, 100 / runningSpeed);
+                timer = setInterval(step, 100);
                 button.text("Pause");
                 speedSlider.setAttribute('disabled', true);
             }
@@ -365,6 +375,9 @@ d3.csv("heatmap_date_freq_coord_genre.csv", prepare, function (data) {
         })
 });
 
+
+// $('b[role="presentation"]').hide();
+// $('.select2-selection__arrow').append('<i class="fa fa-angle-down"></i>');
 
 function prepare(d) {
     d.id = parseInt(d.id);

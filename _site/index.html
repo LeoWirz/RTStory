@@ -395,144 +395,206 @@
 
 <style>
 
-#map-container {
-    margin: auto;
-    height: 600px;
-    width: 100%;
-}
+    /*      Map Styling     */
 
-#vis {
-    margin: auto;
-    width: 100%;
-    height: 100px;
-    position: relative;
-}
+    #map-container {
+        margin: auto;
+        height: 600px;
+        width: 100%;
+    }
 
-#play-button {
-    /*position: absolute;*/
-    /*top: 140px;*/
-    top: 75px;
-    left: -50px;
-    background: #f08080;
-    /*padding-right: 26px;*/
-    /*border-radius: 3px;*/
-    border: none;
-    color: white;
-    margin: 0;
-    /*padding: 0 12px;*/
-    width: 60px;
-    cursor: pointer;
-    height: 30px;
-}
+    #vis {
+        margin: auto;
+        width: 100%;
+        height: 100px;
+        position: relative;
+    }
 
-#play-button:hover {
-    background-color: #696969;
-}
+    /*      Playback Controller     */
 
-.ticks {
-    font-size: 10px;
-    fill:white;
-    /* stroke: white; */
-}
+    #play-button {
+        /*position: absolute;*/
+        /*top: 140px;*/
+        top: 75px;
+        left: -50px;
+        background: #f08080;
+        /*padding-right: 26px;*/
+        /*border-radius: 3px;*/
+        border: none;
+        color: white;
+        margin: 0;
+        /*padding: 0 12px;*/
+        width: 60px;
+        cursor: pointer;
+        height: 30px;
+    }
 
-.track,
-.track-inset,
-.track-overlay {
-    stroke-linecap: round;
-}
+    #play-button:hover {
+        background-color: #696969;
+    }
 
-.track {
-    stroke: #000;
-    stroke-opacity: 0.3;
-    stroke-width: 10px;
-}
+    .ticks {
+        font-size: 13x;
+        fill: white;
+        /* stroke: white; */
+    }
 
-.track-inset {
-    stroke: #dcdcdc;
-    stroke-width: 8px;
-}
+    .track,
+    .track-inset,
+    .track-overlay {
+        stroke-linecap: round;
+    }
 
-.track-overlay {
-    pointer-events: stroke;
-    stroke-width: 50px;
-    stroke: transparent;
-    cursor: crosshair;
-}
+    .track {
+        stroke: #ffffff;
+        stroke-opacity: 0.3;
+        stroke-width: 10px;
+    }
 
-.handle {
-    fill: #FFF;
-    stroke: #FFF;
-    stroke-opacity: 0.5;
-    stroke-width: 1.25px;
-}
+    .track-inset {
+        stroke: #dcdcdc;
+        stroke-width: 8px;
+    }
 
-.class-play{
-    float: left;
-    position:absolute;
-}
-.class-speed-handle{
-    /* float: left; */
-    top:0px;
-    left:1px;
-}
-.presents{
-    /* float: left; */
-    top:100px;
-    left:100px;
-}
+    .track-overlay {
+        pointer-events: stroke;
+        stroke-width: 50px;
+        stroke: transparent;
+        cursor: crosshair;
+    }
 
-.label{
-  fill:white;
-  /* stroke:white; */
-}
+    .handle {
+        fill: #FFF;
+        stroke: #FFF;
+        stroke-opacity: 0.5;
+        stroke-width: 1.25px;
+    }
 
-#slider .noUi-connect {
-    background: #f08080;
-}
+    .class-play {
+        float: left;
+        position: absolute;
+    }
 
-#slider[disabled] .noUi-connect {
-    background: #B8B8B8;
-}
-[disabled].noUi-target,
-[disabled].noUi-handle,
-[disabled] .noUi-handle {
-    cursor: not-allowed;
-}
+    .class-speed-handle {
+        /* float: left; */
+        top: 0px;
+        left: 1px;
+    }
 
+    .label {
+        fill: white;
+        font-size: 13px;
+        /* stroke:white; */
+    }
 
-.select2-search {
-    background-color: black;
-}
-.select2-results {
-    background-color: black;
-}
+    /*      Speed Controller Slider      */
 
-.select2-selection__rendered {
-    background-color: black;
-}
+    #slider .noUi-connect {
+        background: maroon;
+    }
+
+    #slider[disabled] .noUi-connect {
+        background: #B8B8B8;
+    }
+
+    .noUi-target {
+        background: #686868;
+        border-radius: 4px;
+        border: 1px solid #000000;
+        box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;
+    }
+
+    [disabled].noUi-target,
+    [disabled].noUi-handle,
+    [disabled] .noUi-handle {
+        cursor: not-allowed;
+    }
+
+    /*      Genre Multiple Selector     */
+
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        background-color: #2e2e2e;
+        border: 0px solid #aaa;
+        stroke: black;
+        fill: black;
+        border-radius: 0px;
+        cursor: default;
+        float: left;
+        margin-right: 5px;
+        margin-top: 5px;
+        padding: 0 5px;
+    }
+
+    .select2-container--default.select2-container--disabled .select2-selection--multiple {
+        /*background-color: #eee;*/
+        fill: black;
+        cursor: default;
+    }
+
+    .select2-container--default .select2-results__option[aria-disabled=true] {
+        color: black;
+        fill: #2e2e2e;
+    }
+
+    .select2-container--default .select2-selection--multiple {
+        background-color: #737373;
+        border: 0px solid #aaa;
+        border-radius: 4px;
+        cursor: text;
+    }
+
+    .select2-container--default .select2-results__option[aria-selected=true] {
+        background-color: maroon;
+    }
+
+    .select2-container--default .select2-results__option[aria-selected=false] {
+        background-color: #737373;
+    }
+
+    .select2-container--default .select2-search--dropdown .select2-search__field {
+        border: 0px solid #aaa;
+    }
+
+    .select2-dropdown {
+        background-color: white;
+        border: 0px solid #aaa;
+        border-radius: 4px;
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        left: -100000px;
+        width: 100%;
+        z-index: 1051;
+
+    /*      Misc. Styles        */
+
+    .presents {
+        /* float: left; */
+        top: 100px;
+        left: 100px;
+    }
+
+    }
 
 </style>
 
 <div id="control-pane" style="margin-bottom: 20px;">
-    Genres
-    <select id="genreList" title="genres" multiple="multiple" style="background-color: black;">
+    <h4>Genres</h4>
+    <select id="genreList" title="genres" multiple="multiple">
         <option value="0" selected="">All</option>
     </select>
 </div>
 
 <div style="margin-top: 50px;margin-bottom: 25px;">
     <div style="float:left;width: 50%">
-        Playback Speed
+        <h4>Playback Speed </h4>
         <br />
-        <br />
-        <br />
-
         <div id="slider" class="class-speed-handle"></div>
     </div>
-    <div class="presents" style="float: right;width: 50%">
-        Presents<br />
-        <a href="javascript:setPresent(presentWorld)">World</a>
-        <a href="javascript:setPresent(presentSwitzerland)">Switzerland</a>
+    <div class="presents" style="float:right; width:50%; font-size:20px;">
+        <h4> Presents </h4>
+        <a href="javascript:setPresent(presentWorld)">World </a> /
+        <a href="javascript:setPresent(presentSwitzerland)">Switzerland </a> /
         <a href="javascript:setPresent(presentEurope)">Europe</a>
     </div>
 </div>
@@ -984,7 +1046,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, '', 'http://localhost:4000/RTStory/');
+    history.pushState({}, '', 'https://le4ker.github.io/RTStory/');
   }
 }
 </script>
