@@ -355,7 +355,7 @@ d3.csv("heatmap_date_freq_coord_genre.csv", prepare, function (data) {
 
 
     // Initial Setup
-    setPresent(presentSwitzerland);
+    setPresent(presentWorld);
 
     playButton
         .on("click", function () {
@@ -376,9 +376,6 @@ d3.csv("heatmap_date_freq_coord_genre.csv", prepare, function (data) {
         })
 });
 
-
-// $('b[role="presentation"]').hide();
-// $('.select2-selection__arrow').append('<i class="fa fa-angle-down"></i>');
 
 function prepare(d) {
     d.id = parseInt(d.id);
