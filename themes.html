@@ -5,35 +5,70 @@ title: Themes
 ---
 ## Themes over the years
 
-To have an ensemble view on the topics of the programs, the number of occurencies of each word by year was added. The wordcloud below offers a nice way to visualize the evolution of different themes over the year. The dropdown on top of the cloud has four options : Genra, Topics, Persons and Locations. The slider at the bottom allows to pick a year between 1900 and 2017, it can be navigated with the arrow keys once selected. There is way more data for the last decades and very little for the begining of the 20th century.
+To have an ensemble view on the topics of the programs, the number of occurrences of each word by year was added.
+The word cloud below offers a nice way to visualize the evolution of different themes over the year.
+The dropdown menu on top of the cloud has four options : Genres, Topics, Persons and Locations.
+The slider at the bottom allows to pick a year between 1900 and 2017, it can be navigated with the arrow keys once selected.
+There is considerably more data for the last decades and very little for the beginning of the 20th century.
 
-<div id="container"  style="background-color: #343434">
+<div id="container" style="background-color: #343434">
     <div id="top">
         <div id="drop">
-            Choose the theme type or genra :
+            Choose the theme type or genre :
             <select id="themes_drop" style="background-color: black"></select>
         </div>
     </div>
     <div id="bottom">
         <div id="cloud_container" style="border:0px solid grey;margin: 25px;padding: 10px"></div>
         <div id="cloud_slider">
-            <input type="range" list="tickmarks" min="1900" max="2017" value="1980" id="year" style="width: 90%; float: left;">
+            <input type="range" list="tickmarks" min="1900" max="2017" value="1980" id="year"
+                   style="width: 90%; float: left;">
             <span id="range_value" style="float: right;">1980</span>
             <datalist id="tickmarks">
             </datalist>
         </div>
-        
+
     </div>
 </div>
 <br>
+
 ### Word war II
-As expected, the main topic of the years between 1939 and 1945 is the world war II. What is interesting to observate is the evolution of the surrounding topics. In 1939 we can see the importance of national or war oriented words like "army", "armed conflict", "patriotism" or "international relatinships".
-<a href="#container" onclick="set_cloud(1939,'Topics');">Take me to 1939</a>. Even in this context the second main topics are art related (history, litterature, dramatic art, writer). Now the funny part for the years <a href="#container" onclick="set_cloud(1942,'Topics');">1942-43</a> we get "rationnement" and "recette culinaire" which translates to rationing and cooking recipes. Around the <a href="#container" onclick="set_cloud(1945,'Topics');">end of the war</a> peace is the second word, followed by "military surrender", "military release" and "armistice".
+As expected, the main topic of the years between 1939 and 1945 is the World War II.
+What is interesting to observe is the evolution of the surrounding topics.
+In 1939 we can see the importance of national or war oriented words like "army", "armed conflict", "patriotism" or
+"international relationships".
+
+(<a href="#container" onclick="set_cloud(1939,'Topics');">Take me to
+    1939</a>)
+Even in this context the second main topics are art-related (history, literature, dramatic art, writer).
+Amusingly, for the years
+<a href="#container"
+   onclick="set_cloud(1942,'Topics');">1942-43</a> we get "rationnement" and "recette culinaire" which translates to
+rationing and cooking recipes. Around the <a href="#container" onclick="set_cloud(1945,'Topics');"> end of the
+    war</a> peace is the second word, followed by "military surrender," "military release" and "armistice".
 
 
 ### Rising concerns about terrorism
-We only explored the topics of programs, so let's see what the persons have to offer in recent year. <a href="#container" onclick="set_cloud(2010,'Persons');"> 2010</a> Serge Gainsbourg (vie héroïque) came out, this is also the year of the football wordcup in South Africa.<a href="#container" onclick="set_cloud(2013,'Persons');"> 2013</a> Matthieu Chedid new album "Îles" came out and he also did an internation tour this year. <a href="#container" onclick="set_cloud(2014,'Persons');"> 2014</a> Group Etal Islamique, Etal Islamique come big. This is the year when ISIS gained global prominence when it drove Iraqi government forces out of key cities. <a href="#container" onclick="set_cloud(2015,'Persons');"> 2015</a> "Group Etal Islamique" and  "Etal Islamique" are still dominant, but now "Charlie Hebdo" is added to the bigger terms. Let's go back to the topic section to see how they look like for the <a href="#container" onclick="set_cloud(2015,'Topics');">same period</a>. The same subject have emerged with the terms "Islam" and "terrorism".
+Let's see what the persons have to offer in recent year. <a
+        href="#container" onclick="set_cloud(2010,'Persons');">
+    2010</a> is the year that the movie Serge Gainsbourg (vie héroïque) came out, this is also the year of the football
+world cup in South Africa. Both of these themes, clearly trending in the RTS coverage.<a
+        href="#container" onclick="set_cloud(2013,'Persons');"> In
+    2013</a> Matthieu Chedid's new album "Îles" came out and he also did an international tour that year. <a
+        href="#container" onclick="set_cloud(2014,'Persons');">
+    2014</a> Group Etat Islamique (ISIS) comes big. This is the year when ISIS gained global prominence when it drove Iraqi government forces out of key cities.
+<a href="#container" onclick="set_cloud(2015,'Persons');">
+    2015</a> "Group Etat Islamique" and  "Etat Islamique" are still dominant, but now "Charlie Hebdo" is added to the bigger terms.
+Let's go back to the topic section to see how they look like for the
+<a href="#container" onclick="set_cloud(2015,'Topics');">same
+    period</a>. The same subject have emerged with the terms "Islam" and "terrorism".
 
 
-### Why bells ?
-From <a href="#container" onclick="set_cloud(1956,'Topics');">1956</a> to <a href="#container" onclick="set_cloud(1960,'Topics');">1960</a> the top topic is "cloche" which translate to "bell". The term appears from nowhere and completly disapears the following years. Such results are hard to explain with only our history knowlegde so we dig into the data. As a matter of fact, there wasn't much to explain, we found out that there was a radio program that lasted for three years that was about different church's bells around Switerland. Other than that there was no further information. This example shows that even if topics like the World War II seem to have a meaning in term of word occurencies, sometimes it only means someone was motivated enough that he recorded the different soung of bells.
+### Why the bells ?
+We conclude this section on an amusing observation. From <a href="#container" onclick="set_cloud(1956,'Topics');">1956</a> to <a href="#container"
+                                                                             onclick="set_cloud(1960,'Topics');">1960</a> the top topic is "cloche" which translates to "bell".
+The term appears from nowhere and completely disappears the following years. Such results are hard to explain with only our history knowledge so we dig into the data.
+As a matter of fact, there wasn't much to explain, we found out that there was a radio program that lasted for three years that was about
+different church's bells around Switzerland. Other than that there was no further information.
+<!--This example shows that even if topics like the World War II seem to have a meaning in term of word occurrences, -->
+<!--sometimes it only means someone was motivated enough that he recorded the different soung of bells.-->

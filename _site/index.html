@@ -67,6 +67,7 @@
 
   <!-- Custom Fonts -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet", type="text/css">
   <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/RTStory/css/rrssb.css" />
@@ -216,11 +217,33 @@
 <section id="about" class="container content-section text-center">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h2 id="about-the-project">About the project</h2>
+      <h2 id="introduction">Introduction</h2>
+<p><em>Radio Television Suisse (RTS)</em> is the main broadcasting organization in the French speaking Switzerland (<em>Suisse Romande</em>). Together with SRG and SSR (their German and Italian counterparts) they form the national media.</p>
 
-<p>In the frame of the Applied Data Analysis course of fall 2017 at EPFL.</p>
+<p>We obtained nearly 90 years of data of RTS broadcast, from 1930 until 2017. With an expansive dataset from such a media outlet, we wondered what kind of social questions we can answer.</p>
 
-<p>The popular media is an (imperfect) mirror of the society. In this project, we want to study the effect of social trends and events of the 20th century on TV/Radio broadcasts. The 20th century saw the invention and ubiquity of the broadcast media: first radio and then television. Having access to a wealth of information about TV/Radio emissions all the way from 1930’s until today, we believe we can track these events and gain unique insights into the evolution of Swiss society.</p>
+<p>We started with the belief that RTS being a news/entertainment medium, many of the social and international trends and events that shaped the Swiss in the 20th century can be studied and visualized.
+Therefore we set out to answer theses questions:</p>
+
+<h3 id="research-questions">Research Questions</h3>
+
+<ol>
+  <li>
+    <p>What type of programs were produced in each time period? What/Who are the dominant themes/characters for the different historical periods ?</p>
+  </li>
+  <li>
+    <p>How did the RTS coverage of important social phenomena like the sexual revolution, women’s voting right, and terrorism evolved over time?</p>
+  </li>
+  <li>
+    <p>ow has the distribution of genders for anchors and presenters evolved over the course of the years? Was there a gender bias? If yes, how is it changed?</p>
+  </li>
+  <li>
+    <p>How has the RTS covered the news around the globe ? How equitable was the coverage? Is there any noticeable bias?</p>
+  </li>
+  <li>
+    <p>How has RTS coverage evolved across the years?</p>
+  </li>
+</ol>
 
     </div>
   </div>
@@ -301,12 +324,16 @@
     <div class="col-md-10 col-md-offset-1">
       <h2 id="themes-over-the-years">Themes over the years</h2>
 
-<p>To have an ensemble view on the topics of the programs, the number of occurencies of each word by year was added. The wordcloud below offers a nice way to visualize the evolution of different themes over the year. The dropdown on top of the cloud has four options : Genra, Topics, Persons and Locations. The slider at the bottom allows to pick a year between 1900 and 2017, it can be navigated with the arrow keys once selected. There is way more data for the last decades and very little for the begining of the 20th century.</p>
+<p>To have an ensemble view on the topics of the programs, the number of occurrences of each word by year was added.
+The word cloud below offers a nice way to visualize the evolution of different themes over the year.
+The dropdown menu on top of the cloud has four options : Genres, Topics, Persons and Locations.
+The slider at the bottom allows to pick a year between 1900 and 2017, it can be navigated with the arrow keys once selected.
+There is considerably more data for the last decades and very little for the beginning of the 20th century.</p>
 
 <div id="container" style="background-color: #343434">
     <div id="top">
         <div id="drop">
-            Choose the theme type or genra :
+            Choose the theme type or genre :
             <select id="themes_drop" style="background-color: black"></select>
         </div>
     </div>
@@ -318,19 +345,44 @@
             <datalist id="tickmarks">
             </datalist>
         </div>
-        
+
     </div>
 </div>
 <p><br /></p>
+
 <h3 id="word-war-ii">Word war II</h3>
-<p>As expected, the main topic of the years between 1939 and 1945 is the world war II. What is interesting to observate is the evolution of the surrounding topics. In 1939 we can see the importance of national or war oriented words like “army”, “armed conflict”, “patriotism” or “international relatinships”.
-<a href="#container" onclick="set_cloud(1939,'Topics');">Take me to 1939</a>. Even in this context the second main topics are art related (history, litterature, dramatic art, writer). Now the funny part for the years <a href="#container" onclick="set_cloud(1942,'Topics');">1942-43</a> we get “rationnement” and “recette culinaire” which translates to rationing and cooking recipes. Around the <a href="#container" onclick="set_cloud(1945,'Topics');">end of the war</a> peace is the second word, followed by “military surrender”, “military release” and “armistice”.</p>
+<p>As expected, the main topic of the years between 1939 and 1945 is the World War II.
+What is interesting to observe is the evolution of the surrounding topics.
+In 1939 we can see the importance of national or war oriented words like “army”, “armed conflict”, “patriotism” or
+“international relationships”.</p>
+
+<p>(<a href="#container" onclick="set_cloud(1939,'Topics');">Take me to
+    1939</a>)
+Even in this context the second main topics are art-related (history, literature, dramatic art, writer).
+Amusingly, for the years
+<a href="#container" onclick="set_cloud(1942,'Topics');">1942-43</a> we get “rationnement” and “recette culinaire” which translates to
+rationing and cooking recipes. Around the <a href="#container" onclick="set_cloud(1945,'Topics');"> end of the
+    war</a> peace is the second word, followed by “military surrender,” “military release” and “armistice”.</p>
 
 <h3 id="rising-concerns-about-terrorism">Rising concerns about terrorism</h3>
-<p>We only explored the topics of programs, so let’s see what the persons have to offer in recent year. <a href="#container" onclick="set_cloud(2010,'Persons');"> 2010</a> Serge Gainsbourg (vie héroïque) came out, this is also the year of the football wordcup in South Africa.<a href="#container" onclick="set_cloud(2013,'Persons');"> 2013</a> Matthieu Chedid new album “Îles” came out and he also did an internation tour this year. <a href="#container" onclick="set_cloud(2014,'Persons');"> 2014</a> Group Etal Islamique, Etal Islamique come big. This is the year when ISIS gained global prominence when it drove Iraqi government forces out of key cities. <a href="#container" onclick="set_cloud(2015,'Persons');"> 2015</a> “Group Etal Islamique” and  “Etal Islamique” are still dominant, but now “Charlie Hebdo” is added to the bigger terms. Let’s go back to the topic section to see how they look like for the <a href="#container" onclick="set_cloud(2015,'Topics');">same period</a>. The same subject have emerged with the terms “Islam” and “terrorism”.</p>
+<p>Let’s see what the persons have to offer in recent year. <a href="#container" onclick="set_cloud(2010,'Persons');">
+    2010</a> is the year that the movie Serge Gainsbourg (vie héroïque) came out, this is also the year of the football
+world cup in South Africa. Both of these themes, clearly trending in the RTS coverage.<a href="#container" onclick="set_cloud(2013,'Persons');"> In
+    2013</a> Matthieu Chedid’s new album “Îles” came out and he also did an international tour that year. <a href="#container" onclick="set_cloud(2014,'Persons');">
+    2014</a> Group Etat Islamique (ISIS) comes big. This is the year when ISIS gained global prominence when it drove Iraqi government forces out of key cities.
+<a href="#container" onclick="set_cloud(2015,'Persons');">
+    2015</a> “Group Etat Islamique” and  “Etat Islamique” are still dominant, but now “Charlie Hebdo” is added to the bigger terms.
+Let’s go back to the topic section to see how they look like for the
+<a href="#container" onclick="set_cloud(2015,'Topics');">same
+    period</a>. The same subject have emerged with the terms “Islam” and “terrorism”.</p>
 
-<h3 id="why-bells-">Why bells ?</h3>
-<p>From <a href="#container" onclick="set_cloud(1956,'Topics');">1956</a> to <a href="#container" onclick="set_cloud(1960,'Topics');">1960</a> the top topic is “cloche” which translate to “bell”. The term appears from nowhere and completly disapears the following years. Such results are hard to explain with only our history knowlegde so we dig into the data. As a matter of fact, there wasn’t much to explain, we found out that there was a radio program that lasted for three years that was about different church’s bells around Switerland. Other than that there was no further information. This example shows that even if topics like the World War II seem to have a meaning in term of word occurencies, sometimes it only means someone was motivated enough that he recorded the different soung of bells.</p>
+<h3 id="why-the-bells-">Why the bells ?</h3>
+<p>We conclude this section on an amusing observation. From <a href="#container" onclick="set_cloud(1956,'Topics');">1956</a> to <a href="#container" onclick="set_cloud(1960,'Topics');">1960</a> the top topic is “cloche” which translates to “bell”.
+The term appears from nowhere and completely disappears the following years. Such results are hard to explain with only our history knowledge so we dig into the data.
+As a matter of fact, there wasn’t much to explain, we found out that there was a radio program that lasted for three years that was about
+different church’s bells around Switzerland. Other than that there was no further information.
+<!--This example shows that even if topics like the World War II seem to have a meaning in term of word occurrences, -->
+<!--sometimes it only means someone was motivated enough that he recorded the different soung of bells.--></p>
 
     </div>
   </div>
@@ -376,7 +428,9 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <h2 id="coverage-spatial-and-temporal-distributions">Coverage: Spatial and Temporal Distributions</h2>
-<p>In this part we set out to answer this question: <strong>How has the RTS covered the news around the globe ? How equitable was the coverage? Is there any noticeable bias?</strong></p>
+<p>In this part we set out to answer this question:</p>
+
+<p><strong>How has the RTS covered the news around the globe ? How equitable was the coverage? Is there any noticeable bias?</strong></p>
 
 <p>The interactive heat map below shows the 90 years of RTS coverage around the globe. You can pan, zoom and discover the coverage by selecting the genres of programs to include in the heat map. By default all news is included.</p>
 
@@ -1021,7 +1075,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, '', 'http://localhost:4000/RTStory/');
+    history.pushState({}, '', 'https://le4ker.github.io/RTStory/');
   }
 }
 </script>

@@ -125,11 +125,11 @@ var map = new L.Map("map-container", {
 
 
 // Disable Zooming
-// map.touchZoom.disable();
-// map.doubleClickZoom.disable();
-// map.scrollWheelZoom.disable();
-// map.boxZoom.disable();
-// map.keyboard.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+map.boxZoom.disable();
+map.keyboard.disable();
 
 ////////// speed slider /////
 
