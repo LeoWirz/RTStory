@@ -481,7 +481,7 @@ low coverage of the news after the WWII dust settles. This is followed by a spur
         /*top: 140px;*/
         top: 75px;
         left: -50px;
-        background: #f08080;
+        background: #a6001c;
         /*padding-right: 26px;*/
         /*border-radius: 3px;*/
         border: none;
@@ -554,7 +554,7 @@ low coverage of the news after the WWII dust settles. This is followed by a spur
     /*      Speed Controller Slider      */
 
     #slider .noUi-connect {
-        background: maroon;
+        background: #a6001c;
     }
 
     #slider[disabled] .noUi-connect {
@@ -608,7 +608,7 @@ low coverage of the news after the WWII dust settles. This is followed by a spur
     }
 
     .select2-container--default .select2-results__option[aria-selected=true] {
-        background-color: maroon;
+        background-color: #a6001c;
     }
 
     .select2-container--default .select2-results__option[aria-selected=false] {
@@ -735,7 +735,7 @@ In <a href="javascript:setPresent(presentEurope)">Europe</a>, the coverage is mo
 <section id="social" class="container content-section text-center">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h2 id="major-social-phenomena">Major social phenomena.</h2>
+      <h2 id="major-social-phenomena">Major Social Phenomena</h2>
 
 <blockquote>
     <p style="text-align:left"><i> 4. How did the RTS coverage of important social phenomena like the sexual revolution,
@@ -743,27 +743,8 @@ In <a href="javascript:setPresent(presentEurope)">Europe</a>, the coverage is mo
         </i></p>
 </blockquote>
 
-<p><b>Note: Go over the bar plots to see appearing the co-occurenes for a given year.</b>
-What we mean by co-occurece is : words that have appeared the most with the chosen topic for a given year.<br />
-In some years, there is no dominant co-occurence (lower that the set threshold) so you don’t see any thing.</p>
-
 <p>We have chosen to study some of the major social phenomenas of the 20th century. <br />
-Looking at the various plots below, we can see some trends appearing :<br />
-For women’s voting right, it peaks at 1971 when there was the election in Switzerland. Then it’s much less talked about, with some exceptions,
-the last one being in 2017 and women’s voting right attributed to Saudi women.<br />
-For Homosexuality, we can observe that there was absolutely nothing about the subject until 1960! It picks at 2003.
-Observe that in the first apperences, the dominant co-occurences are films (movies), livre (books) showing that artists were trying to talk
-about the project. Whereas in the last years, although the number of occurence has not changed (even decreased over last five years), but,
-the dominant co-occurences are marriage, children and medicine showing the progress made on the subject.</p>
-
-<p>Finally, for terrorisme, it’s interesting to see that after every pic, there is an important relax in the occurence, on the following year.
-The co-occurence here gives nice insights about major terrorist attacks over the last 50 years. You can see, amongst others:
-<br />
-Vietnam and US war in 1964<br />
-l’affaire Gordji and Mitterand in 1988<br />
-11 september attack (reflected in 2002)<br />
-Madrid attacks in 2004<br />
-Paris attacks in 2015</p>
+Looking at the various plots below, we can see some trends appearing :<br /></p>
 
 <p><select id="favoriteThemes" name="form_select" style="background-color:black">
     <option value="terrorisme">Terrorism</option>
@@ -790,6 +771,42 @@ Paris attacks in 2015</p>
     <iframe id="famille" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/9.embed?link=false"></iframe>
     <iframe id="mariage" width="900" height="800" frameborder="0" scrolling="no" style="display:none;" src="//plot.ly/~sfa/13.embed?link=false"></iframe>
 </div>
+
+<p><b>Note: Hover over the bar plots to see the co-occurrences for a given year.</b>
+<br />
+A co-occurrence happens when words show up frequently together (un a cirtain year).
+In some years, there is no dominant co-occurence. This is because we set a threshold and filter the words with co-occurrences
+lower the threshold.</p>
+
+<h3 id="womens-voting-rights">Women’s Voting Rights</h3>
+
+<p>For women’s voting right, the co-occurrences peaks at 1971 when a referendum was held in Switzerland.
+In the following years, presumably because it’s more or less a resolved issue. However, there are some exceptions.
+The last time the subject passed our threshold was in 2017, as the Saudi women gained right to vote in certain elections.<br /></p>
+
+<h3 id="homosexuality">Homosexuality</h3>
+
+<p>In the case of Homosexuality, we observe that there was absolutely no mention of the topic until 1960s! The interest in
+the topic picks at 2003.
+We observe that in the first appearances, the dominant co-occurences are “films” (movies), “livre” (books) showing that
+artists were trying to talk about the subject. Whereas in the last years, although the number of occurrences has
+not changed (even decreased over the last five years), the dominant co-occurrences are marriage, children and medicine
+which shows the progress made on the subject.</p>
+
+<h3 id="terrorism">Terrorism</h3>
+<p>Finally, for terrorism, it’s interesting to see that after every peak, there is an important dip in the occurrences,
+in the following year.</p>
+
+<p>The co-occurrences here give nice insights about major terrorist attacks over the last 50 years. You can see for example, amongst others:</p>
+
+<ol>
+  <li>Vietnam and US war in 1964</li>
+  <li>l’affaire Gordji and Mitterand in 1988</li>
+  <li>September 11 attacks (reflected in 2002)</li>
+  <li>Madrid attacks in 2004</li>
+  <li>Paris attacks in 2015</li>
+</ol>
+
 
     </div>
   </div>
