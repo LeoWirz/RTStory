@@ -2,12 +2,12 @@ var formatDateIntoYear = d3.timeFormat("%Y");
 var formatDate = d3.timeFormat("%d %b %Y");
 var parseDate = d3.timeParse("%d/%m/%Y");
 
-var startDate = new Date("1930-01-01"),
+var startDate = new Date("1932-01-01"),
     endDate = new Date("2017-12-01");
 
 
 var margin = {top: -250, right: 100, bottom: 0, left: 50},
-    width = 800 - margin.left - margin.right,
+    width = 1000 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom;
 
 var svg = d3.select("#vis")
@@ -15,7 +15,7 @@ var svg = d3.select("#vis")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
-var runningSpeed = 1;
+var runningSpeed = 10;
 var numofGroupByDays = 30;
 
 
@@ -141,7 +141,7 @@ speedSlider.style.margin = '0 auto 30px';
 
 noUiSlider.create(speedSlider, {
         start: runningSpeed,
-        step: 0.5,
+        step: 0.1,
         connect: "lower",
         orientation: 'horizontal',
         tooltips: true,
